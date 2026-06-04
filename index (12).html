@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Andrés Felipe Alarcón · Financial Control & Operational Finance</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAD7klEQVR4nNVWbUybVRQ+t2+7dpRiq1M22YRsHZAMZjVsM7oyMqPAFufc1GJjBIqaKCNq/OHcwE/iH6fTRBOnMQjb0KhbZjKiAvtIVCKtIyzzB9DASqGjFJd2lPZ927f3Hn9cacjWru0mJp5/9+Oc557nnHvOIYgIiymKRbX+XwAoM7qNiJxSQgghJB0Vkk4M+B3GmCAI8U1K6cLlTQHEJRqNOkdGCCFFxcWCICBiSj/SomjC7V6+YsXHBw9+3dkJQABRoVDU2eobm5rijCVVxutKLBZDxFdffmXLZrPVUnP29JkrgYDf7+/t7qkwlzfU1fM7jLFkFlIAUEoR0VZbpwDoOnnyqlOrpaZl3/74OxJKijTlvns8noK78iVJggUBR8SOo0f6+vocdocgCIyxG6EIESORyNtvvjU2NoaI3qmpbQ9X1j9TGw6HZVlGxO6ffrbV1cV9zZiihZqU0pb9zTlZ2lu02R3t7YgoyzJjzGqpcblciJgwEiko4tYppYwxQojDbr/VYMjKyvrtl1/5KSHEdI+JLxOylBSA/w5hXghRUErFcJjvh0Jz/BQA1t9tcjpHON0ZABAApLFvjh757NNPJsddhIBSqdQb9Dxsy5bdDvMBX7VqZSAQAACiSGAtMQAiihF51D2lyjYUlt477PIExSgiq6yqmp6eFiWpqrqakwYAOp0uJscgyXdL8JMZooKQhi/tPQOXsnRqRr0yCGJb5/ih2hcaG33eqTtycyurqyAJ6akB+DPyJWdp+Lw6Z424NGeJ90L9c8/3nekNX7n82rutBKDti8/XrTdt3LQRAILBoFKl5H5f60QCijiz3j9+HPz+I9Xo2dzLA/fdJi5x/27ZtfNU1w/vn7jwwfGBruPfbq/e1t72FQC4x916vR4AMLMsEjRqw/LRoT8Hek+sLDa93vKOVqsbu3gRIyFx1j/t82k0mn1790qSNDQ0ZDQaAQASxSApgCiGxdDc7OwsEZRSeC4iiXp9jnN0fLVWulM15/HOUBpbYzQyxgbOndtsNgOAIv0sAoDCoqJ1JSUlpaUatTovL69sQ9lfMzOBYAj8E0JwauKSt3Dt2u+OHXP025VKZX5BQTyprqEiufAa2dPd/diORxHxvdbWbM3Sp5+y7nxkx6ayDT6fDxErzOUOu+PGaxFXe2lPEy/95wcHH9r64BO7dkejUUR8cvfjbzQ343XLdQoAxlgsFqOUWi2WrVsq7P39nslJj8dzuvdU+f0PPGuzYaqGk7on43xT/PDAgcMdh1UqFde0NTS8uKcRU7XMdKcKbkKW5ZHhYUIURcVFaTb9DKaKq+aURRlb/onbvz943Yz8/4ffvwHtwMk1SDHATwAAAABJRU5ErkJggg==">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy:       #0b1524;
+      --navy-mid:   #0f1e33;
+      --blue:       #1d4ed8;
+      --blue-light: #dbeafe;
+      --s700: #334155; --s600: #475569; --s500: #64748b;
+      --s400: #94a3b8; --s300: #cbd5e1; --s200: #e2e8f0;
+      --s100: #f1f5f9; --s50:  #f8fafc;
+      --white: #ffffff; --text: #1e293b; --muted: #475569;
+      --serif: 'Lora', Georgia, serif;
+      --sans:  'Source Sans 3', system-ui, sans-serif;
+      --mono:  'JetBrains Mono', monospace;
+      --r: 4px; --r-sm: 2px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--s50); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.65; overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: var(--white); border-bottom: 1px solid var(--s200);
+      padding: 0 3.5rem; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 0.875rem; text-decoration: none; }
+    .nav-brand-name { font-family: var(--sans); font-size: 0.875rem; font-weight: 600; color: var(--navy); letter-spacing: -0.01em; }
+    .nav-divider { width: 1px; height: 14px; background: var(--s300); }
+    .nav-brand-role { font-family: var(--mono); font-size: 0.6rem; color: var(--s500); letter-spacing: 0.05em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
+    .nav-links a { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--s500); text-decoration: none; padding: 0.38rem 0.7rem; border-radius: var(--r-sm); transition: color 0.15s, background 0.15s; }
+    .nav-links a:hover { color: var(--navy); background: var(--s100); }
+    .nav-cta { background: var(--navy) !important; color: var(--white) !important; }
+    .nav-cta:hover { background: #182d4a !important; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-toggle span { display: block; width: 20px; height: 1.5px; background: var(--navy); }
+    .nav-drawer { display: none; position: fixed; top: 56px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--s200); padding: 1.25rem 2rem; z-index: 199; flex-direction: column; gap: 1rem; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--s600); text-decoration: none; }
+
+    /* ── HERO ── */
+    .hero { background: var(--navy); padding: 7rem 3.5rem 5rem; position: relative; overflow: hidden; }
+    .hero::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 72px 72px;
+    }
+    .hero-inner { max-width: 1080px; margin: 0 auto; position: relative; z-index: 1; }
+
+    .hero-eyeline { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem; }
+    .hero-eyeline-text { font-family: var(--mono); font-size: 0.57rem; color: var(--s400); letter-spacing: 0.18em; text-transform: uppercase; }
+    .hero-eyeline-rule { flex: 1; height: 1px; background: rgba(255,255,255,0.07); }
+
+    .hero-name { font-family: var(--serif); font-size: clamp(2.4rem, 3.8vw, 4rem); font-weight: 400; color: var(--white); line-height: 1.04; letter-spacing: -0.01em; margin-bottom: 0.5rem; }
+    .hero-title { font-family: var(--mono); font-size: 0.7rem; color: var(--s400); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 2.25rem; }
+
+    .hero-bio {
+      max-width: 640px; padding: 1.5rem 2rem;
+      border-left: 2px solid rgba(29,78,216,0.65);
+      background: rgba(255,255,255,0.035);
+      border-radius: 0 var(--r) var(--r) 0;
+      margin-bottom: 3rem;
+    }
+    .hero-bio p { font-family: var(--sans); font-size: 0.96rem; font-weight: 300; color: rgba(255,255,255,0.82); line-height: 1.8; }
+    .hero-bio strong { color: var(--white); font-weight: 500; }
+
+    .hero-caps {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: rgba(255,255,255,0.065);
+      border: 1px solid rgba(255,255,255,0.065); border-radius: var(--r); overflow: hidden;
+    }
+    .cap-cell { background: rgba(255,255,255,0.028); padding: 1.1rem 1.4rem; transition: background 0.2s; }
+    .cap-cell:hover { background: rgba(255,255,255,0.055); }
+    .cap-label { font-family: var(--mono); font-size: 0.55rem; color: var(--s400); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .cap-items { font-family: var(--sans); font-size: 0.82rem; color: rgba(255,255,255,0.72); font-weight: 300; line-height: 1.65; }
+
+    /* ── SHARED LAYOUT ── */
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 3.5rem; }
+    .sec-head { padding: 3.5rem 0 2rem; display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid var(--s200); }
+    .sec-head-left { display: flex; align-items: baseline; gap: 0.8rem; }
+    .sec-n { font-family: var(--mono); font-size: 0.57rem; color: var(--s400); letter-spacing: 0.12em; }
+    .sec-t { font-family: var(--serif); font-size: 1.45rem; font-weight: 400; color: var(--navy); letter-spacing: -0.01em; }
+    .sec-sub { font-family: var(--mono); font-size: 0.58rem; color: var(--s500); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* ── PROFESSIONAL CONTEXT ── */
+    .context-strip { background: var(--white); border-top: 1px solid var(--s200); border-bottom: 1px solid var(--s200); }
+    .context-inner { max-width: 1080px; margin: 0 auto; padding: 3rem 3.5rem; display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
+    .context-label { font-family: var(--mono); font-size: 0.57rem; color: var(--s400); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .context-bio { font-family: var(--serif); font-size: 1.02rem; font-weight: 400; color: var(--navy); line-height: 1.65; font-style: italic; margin-bottom: 1rem; }
+    .context-bio-note { font-family: var(--sans); font-size: 0.84rem; color: var(--muted); line-height: 1.7; }
+    .context-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--s200); border-radius: var(--r); overflow: hidden; }
+    .fact-cell { padding: 1rem 1.25rem; border-bottom: 1px solid var(--s100); border-right: 1px solid var(--s100); }
+    .fact-cell:nth-child(2n) { border-right: none; }
+    .fact-cell:nth-last-child(-n+2) { border-bottom: none; }
+    .fact-label { font-family: var(--mono); font-size: 0.54rem; color: var(--s500); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.2rem; }
+    .fact-val { font-family: var(--sans); font-size: 0.875rem; color: var(--navy); font-weight: 500; line-height: 1.45; }
+
+    /* ── FRAMEWORK DISCLAIMER ── */
+    .disclaimer-bar {
+      background: var(--s50); border: 1px solid var(--s200);
+      border-top: none; padding: 0.75rem 1.5rem;
+      display: flex; align-items: flex-start; gap: 0.75rem;
+    }
+    .disclaimer-bar-icon { font-family: var(--mono); font-size: 0.6rem; color: var(--s400); letter-spacing: 0.08em; flex-shrink: 0; padding-top: 0.1rem; }
+    .disclaimer-bar-text { font-family: var(--sans); font-size: 0.78rem; color: var(--s600); line-height: 1.6; }
+    .disclaimer-bar-text strong { color: var(--s700); font-weight: 600; }
+
+    /* ── REGISTER TABLE ── */
+    .reg-head {
+      display: grid; grid-template-columns: 52px 1fr;
+      padding: 0.6rem 1.5rem;
+      background: var(--s100); border: 1px solid var(--s200); border-top: none; border-bottom: none;
+    }
+    .reg-col { font-family: var(--mono); font-size: 0.54rem; font-weight: 500; color: var(--s500); letter-spacing: 0.14em; text-transform: uppercase; }
+
+    .fw-row {
+      display: grid; grid-template-columns: 52px 1fr;
+      border: 1px solid var(--s200); border-top: none;
+      background: var(--white); transition: background 0.15s;
+    }
+    .fw-row:hover { background: var(--s50); }
+    .fw-cell { padding: 1.6rem 1.5rem; border-right: 1px solid var(--s100); display: flex; align-items: flex-start; }
+    .fw-cell:last-child { border-right: none; }
+
+    .cell-ref { justify-content: center; align-items: center; border-right: 1px solid var(--s200); flex-shrink: 0; }
+    .ref-num { font-family: var(--mono); font-size: 0.62rem; font-weight: 500; color: var(--s400); letter-spacing: 0.1em; }
+
+    .cell-main { flex-direction: column; gap: 0.45rem; border-right: 1px solid var(--s200); }
+    .fw-domain { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); font-weight: 500; }
+    .fw-name { font-family: var(--serif); font-size: 1.07rem; font-weight: 500; color: var(--navy); line-height: 1.25; margin-bottom: 0.1rem; }
+    .fw-desc { font-family: var(--sans); font-size: 0.83rem; color: var(--muted); line-height: 1.68; }
+    .fw-tags { display: flex; flex-wrap: wrap; gap: 0.28rem; margin-top: 0.55rem; }
+    .fw-tag { font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.05em; padding: 0.15rem 0.45rem; border-radius: var(--r-sm); border: 1px solid var(--s200); color: var(--s600); background: var(--s50); }
+
+
+
+    /* ── DARK PHILOSOPHY STRIP ── */
+    .dark-strip { background: var(--navy); padding: 5rem 3.5rem; }
+    .dark-inner { max-width: 1080px; margin: 0 auto; }
+    .dark-head { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 2.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .dark-head .sec-n { color: var(--s400); }
+    .dark-head .sec-t { color: var(--white); }
+    .dark-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.065); border: 1px solid rgba(255,255,255,0.065); border-radius: var(--r); overflow: hidden; }
+    .dark-cell { background: rgba(255,255,255,0.025); padding: 2rem; }
+    .dark-cell-tag { font-family: var(--mono); font-size: 0.54rem; color: var(--s400); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 0.7rem; }
+    .dark-cell-title { font-family: var(--serif); font-size: 1.05rem; color: var(--white); font-weight: 400; margin-bottom: 0.65rem; line-height: 1.3; }
+    .dark-cell-desc { font-family: var(--sans); font-size: 0.82rem; color: rgba(255,255,255,0.52); line-height: 1.72; font-weight: 300; }
+
+    /* ── METHODOLOGY ── */
+    .method-section { background: var(--white); padding: 5rem 3.5rem; border-top: 1px solid var(--s200); }
+    .method-inner { max-width: 1080px; margin: 0 auto; }
+    .method-head { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 2.75rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--s200); }
+    .method-steps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; position: relative; }
+    .method-steps::before { content: ''; position: absolute; top: 1.05rem; left: calc(100%/12); right: calc(100%/12); height: 1px; background: var(--s200); z-index: 0; }
+    .method-step { text-align: center; padding: 0 0.75rem; position: relative; z-index: 1; }
+    .step-num { display: inline-flex; align-items: center; justify-content: center; width: 2.1rem; height: 2.1rem; border-radius: 50%; background: var(--white); border: 1.5px solid var(--s300); font-family: var(--mono); font-size: 0.6rem; font-weight: 500; color: var(--navy); margin: 0 auto 0.75rem; }
+    .step-title { font-family: var(--sans); font-size: 0.8rem; font-weight: 600; color: var(--navy); margin-bottom: 0.3rem; }
+    .step-desc { font-family: var(--sans); font-size: 0.73rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── CONTACT ── */
+    .contact-section { background: var(--s50); padding: 5rem 3.5rem; border-top: 1px solid var(--s200); }
+    .contact-inner { max-width: 1080px; margin: 0 auto; }
+    .contact-head { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 2.75rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--s200); }
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: start; }
+    .contact-h { font-family: var(--serif); font-size: 1.9rem; font-weight: 400; color: var(--navy); line-height: 1.2; margin-bottom: 0.9rem; }
+    .contact-p { font-family: var(--sans); font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
+    .contact-note { margin-top: 1.25rem; padding: 0.9rem 1rem; background: var(--white); border: 1px solid var(--s200); border-radius: var(--r); font-family: var(--sans); font-size: 0.78rem; color: var(--s600); line-height: 1.6; }
+    .contact-rows { border: 1px solid var(--s200); border-radius: var(--r); overflow: hidden; background: var(--white); }
+    .c-row { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid var(--s100); text-decoration: none; color: inherit; transition: background 0.15s; }
+    .c-row:last-child { border-bottom: none; }
+    .c-row:hover { background: var(--s50); }
+    .c-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--s500); }
+    .c-val { font-family: var(--sans); font-size: 0.875rem; color: var(--navy); font-weight: 500; display: flex; align-items: center; gap: 0.35rem; }
+    .c-arrow { font-size: 0.75rem; color: var(--s400); transition: transform 0.15s; }
+    .c-row:hover .c-arrow { transform: translateX(3px); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy-mid); padding: 1.5rem 3.5rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    .foot-inner { max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .foot-copy { font-family: var(--mono); font-size: 0.57rem; color: var(--s400); letter-spacing: 0.05em; }
+    .foot-note { font-family: var(--mono); font-size: 0.54rem; color: var(--s400); letter-spacing: 0.03em; text-align: right; }
+
+    /* ── FADE IN ── */
+    .fi { opacity: 0; transform: translateY(8px); animation: fu 0.45s ease forwards; }
+    @keyframes fu { to { opacity: 1; transform: none; } }
+    .fi:nth-child(1) { animation-delay: 0.04s; }
+    .fi:nth-child(2) { animation-delay: 0.16s; }
+    .fi:nth-child(3) { animation-delay: 0.28s; }
+    .fi:nth-child(4) { animation-delay: 0.40s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav, .hero, .dark-strip, .method-section, .contact-section, footer { padding-left: 2rem; padding-right: 2rem; }
+      .wrap { padding: 0 2rem; }
+      .context-inner { padding: 3rem 2rem; grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-caps { grid-template-columns: repeat(2, 1fr); }
+      .reg-head, .fw-row { grid-template-columns: 40px 1fr; }
+      .dark-grid { grid-template-columns: 1fr; }
+      .method-steps { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+      .method-steps::before { display: none; }
+      .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .hero { padding: 6rem 1.25rem 3.5rem; }
+      .hero-name { font-size: 2.4rem; }
+      .hero-caps { grid-template-columns: 1fr 1fr; }
+      .wrap { padding: 0 1.25rem; }
+      .context-inner { padding: 2.5rem 1.25rem; }
+      .context-facts { grid-template-columns: 1fr; }
+      .fact-cell { border-right: none !important; }
+      .fact-cell:last-child { border-bottom: none; }
+      .reg-head { display: none; }
+      .fw-row { grid-template-columns: 1fr; border-top: 1px solid var(--s200); }
+      .cell-ref { display: none; }
+      .fw-cell { border-right: none; }
+      .dark-strip, .method-section, .contact-section { padding-left: 1.25rem; padding-right: 1.25rem; }
+      footer { padding: 1.25rem; }
+      .foot-inner { flex-direction: column; align-items: flex-start; }
+      .foot-note { text-align: left; }
+      .method-steps { grid-template-columns: 1fr 1fr; gap: 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-brand">
+    <span class="nav-brand-name">Andrés Felipe Alarcón</span>
+    <span class="nav-divider"></span>
+    <span class="nav-brand-role">Operational Finance</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="empresas-colombia.html" style="color:var(--blue);border:1px solid var(--blue-light);border-radius:2px;">🇨🇴 Empresas Colombia</a></li>
+    <li><a href="#background">Background</a></li>
+    <li><a href="#frameworks">Frameworks</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="empresas-colombia.html" onclick="closeNav()" style="color:#1d4ed8;font-weight:600;">🇨🇴 Servicios para Empresas Colombianas</a>
+  <a href="#background" onclick="closeNav()">Background</a>
+  <a href="#frameworks" onclick="closeNav()">Frameworks</a>
+  <a href="#approach" onclick="closeNav()">Approach</a>
+  <a href="#contact" onclick="closeNav()">Contact</a>
+</div>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-inner">
+
+    <div class="hero-eyeline fi">
+      <span class="hero-eyeline-text">Financial Control · FP&amp;A · Reporting Operations</span>
+      <span class="hero-eyeline-rule"></span>
+      <span class="hero-eyeline-text">Medellín, Colombia</span>
+    </div>
+
+    <div class="fi" style="margin-bottom:2rem;">
+      <a href="empresas-colombia.html" style="
+        display:inline-flex; align-items:center; gap:0.6rem;
+        background:rgba(29,78,216,0.15); border:1px solid rgba(29,78,216,0.35);
+        border-radius:4px; padding:0.5rem 1rem; text-decoration:none;
+        font-family:var(--mono); font-size:0.6rem; letter-spacing:0.1em;
+        color:rgba(255,255,255,0.75); text-transform:uppercase;
+        transition:background 0.15s;
+      " onmouseover="this.style.background='rgba(29,78,216,0.25)'" onmouseout="this.style.background='rgba(29,78,216,0.15)'">
+        🇨🇴 ¿Tienes una empresa colombiana? · Ver servicios para pymes en español →
+      </a>
+    </div>
+    <div class="fi">
+      <h1 class="hero-name">Andrés Felipe Alarcón</h1>
+    </div>
+
+    <div class="hero-bio fi">
+      <p>
+        Five-plus years building and operating financial control systems across
+        <strong>FP&amp;A, reporting, and operational finance</strong> in US-market and
+        Latin American environments. Track record of replacing manual, fragmented processes
+        with <strong>structured, governance-ready reporting infrastructure</strong> — designed
+        to serve controllers, finance directors, and operational decision-makers
+        with reliable financial visibility every period.
+      </p>
+    </div>
+
+    <div class="hero-caps fi">
+      <div class="cap-cell">
+        <div class="cap-label">Financial Control</div>
+        <div class="cap-items">Period-Close Governance<br>Accounting Reconciliation &amp; Review<br>Variance Analysis</div>
+      </div>
+      <div class="cap-cell">
+        <div class="cap-label">FP&amp;A</div>
+        <div class="cap-items">Budgeting &amp; Forecasting<br>Management Reporting<br>Performance Analysis</div>
+      </div>
+      <div class="cap-cell">
+        <div class="cap-label">Reporting Automation</div>
+        <div class="cap-items">Power Query · Power BI<br>Excel · VBA · SQL<br>ERP Data Integration</div>
+      </div>
+      <div class="cap-cell">
+        <div class="cap-label">Standards &amp; Exposure</div>
+        <div class="cap-items">US GAAP · IFRS<br>Multi-Entity Consolidation<br>English · Spanish</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── PROFESSIONAL CONTEXT ── -->
+<div class="context-strip" id="background">
+  <div class="context-inner">
+
+    <div>
+      <div class="context-label">Professional Background</div>
+      <p class="context-bio">
+        "I build finance systems that work reliably across periods — not reports that look good once."
+      </p>
+      <p class="context-bio-note">
+        Background spans lending, real estate investment, and finance/accounting services,
+        with consistent exposure to U.S.-market operations and reporting environments under US GAAP.
+        Experience includes multi-entity financial control, FP&amp;A reporting, close process
+        coordination, and executive-level reporting across both U.S. and Colombian business environments.
+      </p>
+      <p class="context-bio-note" style="margin-top:0.75rem;">
+        Work has included supporting investment firms and operating companies through reporting
+        automation, financial planning, budgeting, and process standardization initiatives
+        designed to improve visibility, reporting consistency, and operational decision-making.
+        Experienced operating in multi-entity and multi-currency environments with board-level
+        reporting requirements, cross-functional coordination, and independently managed
+        finance operations.
+      </p>
+    </div>
+
+    <div>
+      <div class="context-label">Professional Profile</div>
+      <div class="context-facts">
+        <div class="fact-cell">
+          <div class="fact-label">Experience</div>
+          <div class="fact-val">5+ Years · Financial Controllership · FP&amp;A</div>
+        </div>
+        <div class="fact-cell">
+          <div class="fact-label">Market Exposure</div>
+          <div class="fact-val">United States · Colombia</div>
+        </div>
+        <div class="fact-cell">
+          <div class="fact-label">Reporting Standards</div>
+          <div class="fact-val">US GAAP · IFRS · Local GAAP</div>
+        </div>
+        <div class="fact-cell">
+          <div class="fact-label">Environments</div>
+          <div class="fact-val">Multi-entity · Multi-currency</div>
+        </div>
+        <div class="fact-cell">
+          <div class="fact-label">Languages</div>
+          <div class="fact-val">English (Advanced Professional Proficiency) · Spanish (Native)</div>
+        </div>
+        <div class="fact-cell">
+          <div class="fact-label">Working Mode</div>
+          <div class="fact-val">Remote-ready · US time zone overlap</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── OPERATIONAL FINANCE FRAMEWORKS ── -->
+<div class="wrap">
+  <div class="sec-head" id="frameworks">
+    <div class="sec-head-left">
+      <span class="sec-n">01 /</span>
+      <span class="sec-t">Operational Finance Frameworks</span>
+    </div>
+    <span class="sec-sub">Capability Demonstrations · Finance Systems Design</span>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+  <div class="disclaimer-bar">
+    <span class="disclaimer-bar-icon">NOTE</span>
+    <p class="disclaimer-bar-text">
+      The frameworks below demonstrate structured approaches to recurring operational finance challenges.
+      <strong>They are capability demonstrations built from direct professional experience</strong> — not representations
+      of client implementations, proprietary data, or confidential work product. No real company data,
+      client identifiers, or fabricated financial metrics are used.
+    </p>
+  </div>
+
+  <!-- Table header -->
+  <div class="reg-head">
+    <span class="reg-col">Ref</span>
+    <span class="reg-col">Framework &amp; Operational Rationale</span>
+  </div>
+
+  <!-- Framework 01 -->
+  <div class="fw-row">
+    <div class="fw-cell cell-ref"><span class="ref-num">F-01</span></div>
+    <div class="fw-cell cell-main">
+      <span class="fw-domain">Treasury &amp; Liquidity Management</span>
+      <div class="fw-name">13-Week Cash Flow Forecasting Model</div>
+      <p class="fw-desc">
+        Most finance teams discover cash constraints at period-end rather than during the period —
+        because reporting runs on actuals, not forward-looking assumptions.
+        This framework shifts the focus to rolling cash intelligence: structured inflow/outflow
+        assumption logic separating committed cash from projected cash, scenario sensitivity for
+        operating plan deviations, threshold-based liquidity alerts, and a weekly treasury summary
+        designed for CFO review. Includes covenant simulation for debt-service environments.
+      </p>
+      <div class="fw-tags">
+        <span class="fw-tag">13-Week Rolling Horizon</span>
+        <span class="fw-tag">Assumption-Based Logic</span>
+        <span class="fw-tag">Scenario Analysis</span>
+        <span class="fw-tag">Liquidity Thresholds</span>
+        <span class="fw-tag">Covenant Simulation</span>
+        <span class="fw-tag">Treasury Summary</span>
+      </div>
+    </div>
+    </div>
+
+  <!-- Framework 02 -->
+  <div class="fw-row">
+    <div class="fw-cell cell-ref"><span class="ref-num">F-02</span></div>
+    <div class="fw-cell cell-main">
+      <span class="fw-domain">Controllership &amp; Period-Close</span>
+      <div class="fw-name">Month-End Close &amp; Reporting Architecture</div>
+      <p class="fw-desc">
+        Month-end close failures rarely stem from accounting errors. They come from coordination
+        failures — tasks distributed across email chains, reconciliations with unclear ownership,
+        and no central view of what is complete versus outstanding.
+        This framework replaces informal close coordination with a structured governance layer:
+        close calendar, reconciliation status tracking, task ownership matrix, and completion
+        KPIs visible in real time to the Controller — without requiring constant manual
+        status updates or close-call meetings.
+      </p>
+      <div class="fw-tags">
+        <span class="fw-tag">Close Calendar</span>
+        <span class="fw-tag">Recon Status Tracker</span>
+        <span class="fw-tag">Ownership Matrix</span>
+        <span class="fw-tag">Escalation Thresholds</span>
+        <span class="fw-tag">Completion KPIs</span>
+        <span class="fw-tag">Multi-Entity</span>
+      </div>
+    </div>
+    </div>
+
+  <!-- Framework 03 -->
+  <div class="fw-row">
+    <div class="fw-cell cell-ref"><span class="ref-num">F-03</span></div>
+    <div class="fw-cell cell-main">
+      <span class="fw-domain">Fixed Assets &amp; Capital Expenditure</span>
+      <div class="fw-name">Capex &amp; Fixed Asset Control Framework</div>
+      <p class="fw-desc">
+        Capex overruns are typically discovered at period-end, not during project execution.
+        CIP balances age without clear capitalization triggers. Depreciation schedules drift
+        from policy when the asset register is not maintained continuously.
+        This framework provides the control layer between capex approval and the balance sheet:
+        spend tracking against authorized budgets, CIP aging alerts beyond policy thresholds,
+        capitalization workflow documentation, and a depreciation monitoring layer that connects
+        project completion events to the fixed asset register.
+      </p>
+      <div class="fw-tags">
+        <span class="fw-tag">Capex Request Tracking</span>
+        <span class="fw-tag">Budget vs. Actual</span>
+        <span class="fw-tag">CIP Aging Analysis</span>
+        <span class="fw-tag">Capitalization Workflow</span>
+        <span class="fw-tag">Depreciation Monitor</span>
+        <span class="fw-tag">Asset Lifecycle</span>
+      </div>
+    </div>
+    </div>
+
+  <!-- Framework 04 -->
+  <div class="fw-row">
+    <div class="fw-cell cell-ref"><span class="ref-num">F-04</span></div>
+    <div class="fw-cell cell-main">
+      <span class="fw-domain">FP&amp;A &amp; Performance Management</span>
+      <div class="fw-name">Budget vs. Actual Variance Reporting System</div>
+      <p class="fw-desc">
+        Variance reporting stops being useful when it answers "what was off" without
+        explaining "what changed operationally." A number without context is noise,
+        not intelligence. This framework is built around the reporting logic that makes
+        variance analysis actionable: structured assumption documentation per department,
+        period-over-period deviation tracking, waterfall visualization connecting budget to
+        actuals, and an executive summary format that links variances to operational decisions —
+        not just accounting classifications. Designed for management review meetings, not period-end filing.
+      </p>
+      <div class="fw-tags">
+        <span class="fw-tag">Multi-Department Budget</span>
+        <span class="fw-tag">Automated Actuals Import</span>
+        <span class="fw-tag">Assumption Documentation</span>
+        <span class="fw-tag">Waterfall Logic</span>
+        <span class="fw-tag">OPEX Trend Tracking</span>
+        <span class="fw-tag">Executive Package</span>
+      </div>
+    </div>
+    </div>
+
+  <!-- Framework 05 -->
+  <div class="fw-row">
+    <div class="fw-cell cell-ref"><span class="ref-num">F-05</span></div>
+    <div class="fw-cell cell-main">
+      <span class="fw-domain">Working Capital &amp; Liquidity Operations</span>
+      <div class="fw-name">Working Capital Intelligence Dashboard</div>
+      <p class="fw-desc">
+        Working capital metrics are frequently calculated but rarely integrated into
+        operational decisions — because AR aging lives in one report, AP scheduling in another,
+        and no one has a unified view of cash conversion position between period-end reports.
+        This framework builds that unified layer: AR-to-cash cycle monitoring, AP scheduling
+        against payment terms, inventory velocity, DSO/DPO trend tracking, and a liquidity
+        position summary designed for weekly finance and operations review. The objective is
+        closing the gap between the balance sheet and the bank account.
+      </p>
+      <div class="fw-tags">
+        <span class="fw-tag">AR Aging</span>
+        <span class="fw-tag">AP Scheduling</span>
+        <span class="fw-tag">DSO · DPO Tracking</span>
+        <span class="fw-tag">Cash Conversion Cycle</span>
+        <span class="fw-tag">Inventory Turnover</span>
+        <span class="fw-tag">Liquidity Position</span>
+      </div>
+    </div>
+    </div>
+
+</div><!-- /wrap -->
+
+<!-- ── FINANCE OPERATIONS PHILOSOPHY ── -->
+<div class="dark-strip">
+  <div class="dark-inner">
+    <div class="dark-head">
+      <span class="sec-n">02 /</span>
+      <span class="sec-t">Finance Operations Philosophy</span>
+    </div>
+    <div class="dark-grid">
+      <div class="dark-cell">
+        <div class="dark-cell-tag">Principle I</div>
+        <div class="dark-cell-title">Data integrity before reporting velocity</div>
+        <div class="dark-cell-desc">
+          A report produced quickly on unreliable data is worse than no report at all —
+          because it creates false confidence at the decision layer. Every reporting system
+          starts with the question: what does it take for this number to be trusted every period?
+          That answer determines the architecture, not the output format.
+        </div>
+      </div>
+      <div class="dark-cell">
+        <div class="dark-cell-tag">Principle II</div>
+        <div class="dark-cell-title">Process design before visualization</div>
+        <div class="dark-cell-desc">
+          A dashboard is the last layer of a well-designed process, not a substitute for one.
+          Finance systems built in reverse — starting with the visual and working backward —
+          tend to break under operational load. The mapping work happens before the first
+          formula is written: what is the source, who owns it, what classifies it, who reviews it?
+        </div>
+      </div>
+      <div class="dark-cell">
+        <div class="dark-cell-tag">Principle III</div>
+        <div class="dark-cell-title">Financial control works through clarity, not complexity</div>
+        <div class="dark-cell-desc">
+          Control environments fail when they are too complicated to be understood consistently
+          by the people who operate them. The strongest financial control frameworks are structured
+          enough to scale, simple enough to be audited, and clear enough that variance from the
+          standard is immediately visible — without requiring interpretation.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── METHODOLOGY ── -->
+<div class="method-section" id="approach">
+  <div class="method-inner">
+    <div class="method-head">
+      <span class="sec-n">03 /</span>
+      <span class="sec-t">Finance Systems Methodology</span>
+    </div>
+    <div class="method-steps">
+      <div class="method-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Problem Definition</div>
+        <div class="step-desc">What is the operational failure this system solves? Where does the current process break?</div>
+      </div>
+      <div class="method-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Process Mapping</div>
+        <div class="step-desc">Document the current state: who does what, what breaks, where ownership is unclear.</div>
+      </div>
+      <div class="method-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Data Architecture</div>
+        <div class="step-desc">Source systems, data model structure, classification tables, refresh logic, sign conventions.</div>
+      </div>
+      <div class="method-step">
+        <div class="step-num">04</div>
+        <div class="step-title">Reporting Logic</div>
+        <div class="step-desc">Calculation rules, aggregation layers, exception flags, and output format per audience.</div>
+      </div>
+      <div class="method-step">
+        <div class="step-num">05</div>
+        <div class="step-title">Governance Layer</div>
+        <div class="step-desc">Ownership, review cadence, escalation thresholds, and period-end sign-off requirements.</div>
+      </div>
+      <div class="method-step">
+        <div class="step-num">06</div>
+        <div class="step-title">Documentation</div>
+        <div class="step-desc">Can this be maintained, audited, and handed over by someone other than its builder?</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONTACT ── -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-head">
+      <span class="sec-n">04 /</span>
+      <span class="sec-t">Contact</span>
+    </div>
+    <div class="contact-layout">
+      <div>
+        <h2 class="contact-h">Available for financial control and FP&amp;A engagements.</h2>
+        <p class="contact-p">
+          Open to senior analyst, financial controller, and FP&amp;A roles — particularly in
+          multinational, multi-entity, or finance transformation environments. Also available
+          for independent financial consulting engagements in reporting automation and
+          operational finance process design.
+        </p>
+        <div class="contact-note">
+          Interviews and project conversations conducted in English or Spanish.
+          US time zone overlap available. Remote or hybrid arrangements considered.
+        </div>
+      </div>
+      <div class="contact-rows">
+        <a href="mailto:aalarco2@eafit.edu.co" class="c-row">
+          <span class="c-label">Email</span>
+          <span class="c-val">aalarco2@eafit.edu.co <span class="c-arrow">→</span></span>
+        </a>
+        <a href="https://www.linkedin.com/in/aalarconfp/" target="_blank" class="c-row">
+          <span class="c-label">LinkedIn</span>
+          <span class="c-val">linkedin.com/in/aalarconfp <span class="c-arrow">↗</span></span>
+        </a>
+        <a href="https://www.credential.net/profile/aalarconfp/wallet" target="_blank" class="c-row">
+          <span class="c-label">Credentials</span>
+          <span class="c-val">Certification Wallet <span class="c-arrow">↗</span></span>
+        </a>
+        <div class="c-row" style="cursor:default;">
+          <span class="c-label">Location</span>
+          <span class="c-val" style="color:var(--s600);font-weight:400;">Medellín, Colombia · Remote-Ready</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="foot-inner">
+    <span class="foot-copy">© 2026 Andrés Felipe Alarcón · Operational Finance &amp; Financial Control</span>
+    <span class="foot-note">
+      Financial Control · FP&amp;A · Reporting Automation · Finance Systems Design
+      &nbsp;·&nbsp;
+      <a href="empresas-colombia.html" style="color:var(--s400);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--s400)'">🇨🇴 Servicios para pymes colombianas →</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav() { document.getElementById('navDrawer').classList.toggle('open'); }
+  function closeNav()  { document.getElementById('navDrawer').classList.remove('open'); }
+</script>
+</body>
+</html>
