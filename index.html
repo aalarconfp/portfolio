@@ -192,6 +192,45 @@
     .foot-copy { font-family: var(--mono); font-size: 0.57rem; color: var(--s400); letter-spacing: 0.05em; }
     .foot-note { font-family: var(--mono); font-size: 0.54rem; color: var(--s400); letter-spacing: 0.03em; text-align: right; }
 
+    /* ── HERO CTA + CREDIBILITY STRIP + SIGN-OFF ── */
+    .hero-cta-row { display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+    .btn { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.85rem 1.6rem; border-radius: var(--r); text-decoration: none; transition: background 0.15s, border-color 0.15s, color 0.15s; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-primary { background: var(--white); color: var(--navy); }
+    .btn-primary:hover { background: var(--s200); }
+    .btn-secondary { background: transparent; color: rgba(255,255,255,0.82); border: 1px solid rgba(255,255,255,0.25); }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
+
+    .cred-strip { display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .cred-chip { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .cred-dot { color: rgba(255,255,255,0.22); }
+
+    .hero-signoff { display: flex; align-items: center; gap: 0.9rem; padding-top: 1.75rem; border-top: 1px solid rgba(255,255,255,0.08); }
+    .hero-signoff-name { font-family: var(--serif); font-size: 0.95rem; color: rgba(255,255,255,0.85); font-style: italic; }
+    .hero-signoff-role { font-family: var(--mono); font-size: 0.56rem; color: var(--s400); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* ── SERVICES ── */
+    .svc-row { display: grid; grid-template-columns: 240px 1fr; border: 1px solid var(--s200); border-top: none; background: var(--white); }
+    .svc-label-cell { padding: 1.75rem 1.5rem; border-right: 1px solid var(--s200); }
+    .svc-domain { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); font-weight: 500; margin-bottom: 0.55rem; display: block; }
+    .svc-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; color: var(--navy); line-height: 1.32; }
+    .svc-main-cell { padding: 1.75rem 1.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+    .svc-col-label { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--s500); margin-bottom: 0.6rem; display: block; }
+    .svc-col-list { list-style: none; font-family: var(--sans); font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+    .svc-col-list li { padding-left: 0.9rem; position: relative; margin-bottom: 0.4rem; }
+    .svc-col-list li::before { content: '—'; position: absolute; left: 0; color: var(--s400); }
+
+    /* ── SOLUTION FLOW (Selected Finance Solutions) ── */
+    .fw-flow { display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 0.9rem; }
+    .flow-label { font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); font-weight: 500; margin-bottom: 0.15rem; display: block; }
+    .flow-text { font-family: var(--sans); font-size: 0.83rem; color: var(--muted); line-height: 1.62; }
+    .flow-arrow { font-family: var(--mono); font-size: 0.65rem; color: var(--s300); }
+
+    /* ── CREDENTIALS GRID ── */
+    .cred-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--s200); border-top: none; background: var(--white); }
+    .cred-cell { padding: 1.25rem 1.5rem; border-right: 1px solid var(--s100); border-bottom: 1px solid var(--s100); }
+    .cred-cell:nth-child(4n) { border-right: none; }
+    .cred-cell:nth-last-child(-n+3) { border-bottom: none; }
+
     /* ── FADE IN ── */
     .fi { opacity: 0; transform: translateY(8px); animation: fu 0.45s ease forwards; }
     @keyframes fu { to { opacity: 1; transform: none; } }
@@ -211,6 +250,14 @@
       .method-steps { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
       .method-steps::before { display: none; }
       .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .svc-row { grid-template-columns: 1fr; }
+      .svc-label-cell { border-right: none; border-bottom: 1px solid var(--s200); }
+      .svc-main-cell { grid-template-columns: 1fr 1fr; }
+      .cred-grid { grid-template-columns: repeat(2, 1fr); }
+      .cred-cell:nth-child(4n) { border-right: 1px solid var(--s100); }
+      .cred-cell:nth-child(2n) { border-right: none; }
+      .cred-cell:nth-last-child(-n+3) { border-bottom: 1px solid var(--s100); }
+      .cred-cell:nth-last-child(-n+2) { border-bottom: none; }
     }
 
     @media (max-width: 680px) {
@@ -234,6 +281,12 @@
       .foot-inner { flex-direction: column; align-items: flex-start; }
       .foot-note { text-align: left; }
       .method-steps { grid-template-columns: 1fr 1fr; gap: 1.75rem; }
+      .svc-main-cell { grid-template-columns: 1fr; gap: 1.25rem; }
+      .cred-grid { grid-template-columns: 1fr; }
+      .cred-cell { border-right: none !important; border-bottom: 1px solid var(--s100) !important; }
+      .cred-cell:last-child { border-bottom: none !important; }
+      .hero-cta-row { flex-direction: column; align-items: stretch; }
+      .btn { justify-content: center; }
     }
   </style>
 </head>
@@ -248,9 +301,10 @@
   </a>
   <ul class="nav-links">
     <li><a href="empresas-colombia.html" style="color:var(--blue);border:1px solid var(--blue-light);border-radius:2px;">🇨🇴 Empresas Colombia</a></li>
-    <li><a href="#background">Background</a></li>
-    <li><a href="#frameworks">Frameworks</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#solutions">Solutions</a></li>
     <li><a href="#approach">Approach</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
   <div class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
@@ -260,9 +314,10 @@
 
 <div class="nav-drawer" id="navDrawer">
   <a href="empresas-colombia.html" onclick="closeNav()" style="color:#1d4ed8;font-weight:600;">🇨🇴 Servicios para Empresas Colombianas</a>
-  <a href="#background" onclick="closeNav()">Background</a>
-  <a href="#frameworks" onclick="closeNav()">Frameworks</a>
+  <a href="#services" onclick="closeNav()">Services</a>
+  <a href="#solutions" onclick="closeNav()">Solutions</a>
   <a href="#approach" onclick="closeNav()">Approach</a>
+  <a href="about.html" onclick="closeNav()">About</a>
   <a href="#contact" onclick="closeNav()">Contact</a>
 </div>
 
@@ -289,107 +344,201 @@
       </a>
     </div>
     <div class="fi">
-      <h1 class="hero-name">Andrés Felipe Alarcón</h1>
+      <h1 class="hero-name">Financial Control, FP&amp;A &amp; Reporting Systems for Growing Companies</h1>
     </div>
 
     <div class="hero-bio fi">
       <p>
-        Five-plus years building and running finance systems — covering
-        <strong>planning, reporting, and day-to-day finance operations</strong> — for
-        U.S. and Latin American companies. I take messy, manual processes and turn them
-        into <strong>clear, reliable reporting systems</strong> that controllers, finance
-        directors, and business owners can trust every single month.
+        For companies scaling across the U.S. and Latin America, I build the
+        <strong>financial control, planning, and reporting systems</strong> leadership can
+        rely on every month — closing the books on time, catching what's off before it
+        becomes a problem, and turning raw numbers into <strong>reporting you can actually
+        act on</strong>.
       </p>
     </div>
 
-    <div class="hero-caps fi">
-      <div class="cap-cell">
-        <div class="cap-label">Financial Control</div>
-        <div class="cap-items">Closing the Books Each Month<br>Checking &amp; Reviewing Accounts<br>Explaining Budget vs. Actual Gaps</div>
-      </div>
-      <div class="cap-cell">
-        <div class="cap-label">Planning &amp; Analysis</div>
-        <div class="cap-items">Budgeting &amp; Forecasting<br>Reports for Management<br>Performance Tracking</div>
-      </div>
-      <div class="cap-cell">
-        <div class="cap-label">Automated Reporting</div>
-        <div class="cap-items">Power Query · Power BI<br>Excel · VBA · SQL<br>Connecting to Your Accounting System</div>
-      </div>
-      <div class="cap-cell">
-        <div class="cap-label">Standards &amp; Languages</div>
-        <div class="cap-items">US GAAP · IFRS<br>Multi-Company Reporting<br>English · Spanish</div>
-      </div>
+    <div class="hero-cta-row fi">
+      <a href="#contact" class="btn btn-primary">Schedule a Call →</a>
+      <a href="#services" class="btn btn-secondary">View Services</a>
     </div>
 
-  </div>
-</div>
-
-<!-- ── PROFESSIONAL CONTEXT ── -->
-<div class="context-strip" id="background">
-  <div class="context-inner">
-
-    <div>
-      <div class="context-label">Professional Background</div>
-      <p class="context-bio">
-        "I build finance systems that work reliably across periods — not reports that look good once."
-      </p>
-      <p class="context-bio-note">
-        My background covers private lending, real estate investment, and outsourced
-        accounting for U.S. companies, always working under U.S. accounting standards (GAAP).
-        I've handled the finances for multiple companies at once, prepared monthly reports,
-        managed the month-end close, and delivered reporting for leadership teams in both
-        the U.S. and Colombia.
-      </p>
-      <p class="context-bio-note" style="margin-top:0.75rem;">
-        I've helped investment firms and operating businesses automate their reporting,
-        build budgets, and standardize how they track their numbers — so owners and
-        managers can see what's happening and make faster decisions. I'm comfortable
-        working across multiple companies and currencies, reporting to boards, coordinating
-        with other teams, and running finance operations independently.
-      </p>
+    <div class="cred-strip fi">
+      <span class="cred-chip">US GAAP</span><span class="cred-dot">·</span>
+      <span class="cred-chip">IFRS</span><span class="cred-dot">·</span>
+      <span class="cred-chip">Multi-Entity</span><span class="cred-dot">·</span>
+      <span class="cred-chip">US &amp; LATAM</span><span class="cred-dot">·</span>
+      <span class="cred-chip">English &amp; Spanish</span>
     </div>
 
-    <div>
-      <div class="context-label">Professional Profile</div>
-      <div class="context-facts">
-        <div class="fact-cell">
-          <div class="fact-label">Experience</div>
-          <div class="fact-val">5+ Years · Financial Controllership · FP&amp;A</div>
-        </div>
-        <div class="fact-cell">
-          <div class="fact-label">Markets</div>
-          <div class="fact-val">United States · Colombia</div>
-        </div>
-        <div class="fact-cell">
-          <div class="fact-label">Accounting Standards</div>
-          <div class="fact-val">US GAAP · IFRS</div>
-        </div>
-        <div class="fact-cell">
-          <div class="fact-label">Company Types</div>
-          <div class="fact-val">Multiple Entities · Multiple Currencies</div>
-        </div>
-        <div class="fact-cell">
-          <div class="fact-label">Languages</div>
-          <div class="fact-val">English (Full Professional Proficiency) · Spanish (Native)</div>
-        </div>
-        <div class="fact-cell">
-          <div class="fact-label">Working Mode</div>
-          <div class="fact-val">Remote-ready · US time zone overlap</div>
-        </div>
-      </div>
+    <div class="hero-signoff fi">
+      <span class="hero-signoff-name">Andrés Felipe Alarcón</span>
+      <span class="hero-signoff-role">Operational Finance &amp; FP&amp;A Consultant</span>
     </div>
 
   </div>
 </div>
 
-<!-- ── OPERATIONAL FINANCE FRAMEWORKS ── -->
+<!-- ── SERVICES ── -->
 <div class="wrap">
-  <div class="sec-head" id="frameworks">
+  <div class="sec-head" id="services">
     <div class="sec-head-left">
       <span class="sec-n">01 /</span>
-      <span class="sec-t">Finance Systems I Build</span>
+      <span class="sec-t">Services</span>
     </div>
-    <span class="sec-sub">Sample Projects · Finance System Design</span>
+    <span class="sec-sub">What I Do · How I Help</span>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+
+  <!-- Service 01 -->
+  <div class="svc-row">
+    <div class="svc-label-cell">
+      <span class="svc-domain">Financial Controllership</span>
+      <div class="svc-name">Books You Can Trust, Every Month</div>
+    </div>
+    <div class="svc-main-cell">
+      <div>
+        <span class="svc-col-label">Solves</span>
+        <ul class="svc-col-list">
+          <li>Late or unreliable month-end close</li>
+          <li>Unclear ownership of reconciliations</li>
+          <li>Statements leadership doesn't fully trust</li>
+        </ul>
+      </div>
+      <div>
+        <span class="svc-col-label">You Receive</span>
+        <ul class="svc-col-list">
+          <li>Month-end close</li>
+          <li>Account reconciliations</li>
+          <li>Financial reporting</li>
+          <li>Internal controls</li>
+        </ul>
+      </div>
+      <div>
+        <span class="svc-col-label">Typical Engagements</span>
+        <ul class="svc-col-list">
+          <li>Monthly close management</li>
+          <li>Multi-entity reconciliations</li>
+          <li>Statement prep under US GAAP / IFRS</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service 02 -->
+  <div class="svc-row">
+    <div class="svc-label-cell">
+      <span class="svc-domain">FP&amp;A</span>
+      <div class="svc-name">Planning Leadership Can Act On</div>
+    </div>
+    <div class="svc-main-cell">
+      <div>
+        <span class="svc-col-label">Solves</span>
+        <ul class="svc-col-list">
+          <li>Budgets that don't reflect the business</li>
+          <li>No clear explanation for variances</li>
+          <li>Reporting that isn't decision-ready</li>
+        </ul>
+      </div>
+      <div>
+        <span class="svc-col-label">You Receive</span>
+        <ul class="svc-col-list">
+          <li>Budgeting &amp; forecasting</li>
+          <li>Variance analysis</li>
+          <li>KPI reporting</li>
+        </ul>
+      </div>
+      <div>
+        <span class="svc-col-label">Typical Engagements</span>
+        <ul class="svc-col-list">
+          <li>Annual budget build</li>
+          <li>Rolling forecast models</li>
+          <li>Budget-vs-actual reporting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service 03 -->
+  <div class="svc-row">
+    <div class="svc-label-cell">
+      <span class="svc-domain">Cash Flow &amp; Treasury</span>
+      <div class="svc-name">Visibility Before Cash Gets Tight</div>
+    </div>
+    <div class="svc-main-cell">
+      <div>
+        <span class="svc-col-label">Solves</span>
+        <ul class="svc-col-list">
+          <li>Cash surprises at month-end</li>
+          <li>No short-term liquidity visibility</li>
+          <li>Working capital tied up, untracked</li>
+        </ul>
+      </div>
+      <div>
+        <span class="svc-col-label">You Receive</span>
+        <ul class="svc-col-list">
+          <li>13-week cash flow</li>
+          <li>Working capital tracking</li>
+          <li>Liquidity planning</li>
+        </ul>
+      </div>
+      <div>
+        <span class="svc-col-label">Typical Engagements</span>
+        <ul class="svc-col-list">
+          <li>Rolling 13-week cash flow build</li>
+          <li>AR / AP &amp; working capital dashboards</li>
+          <li>Liquidity scenario testing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service 04 -->
+  <div class="svc-row">
+    <div class="svc-label-cell">
+      <span class="svc-domain">Reporting Automation</span>
+      <div class="svc-name">Hours of Manual Work, Removed</div>
+    </div>
+    <div class="svc-main-cell">
+      <div>
+        <span class="svc-col-label">Solves</span>
+        <ul class="svc-col-list">
+          <li>Manual, error-prone spreadsheets</li>
+          <li>Reporting that takes days, not hours</li>
+          <li>Data scattered across systems</li>
+        </ul>
+      </div>
+      <div>
+        <span class="svc-col-label">You Receive</span>
+        <ul class="svc-col-list">
+          <li>Power BI</li>
+          <li>Power Query</li>
+          <li>Excel</li>
+          <li>SQL &amp; process automation</li>
+        </ul>
+      </div>
+      <div>
+        <span class="svc-col-label">Typical Engagements</span>
+        <ul class="svc-col-list">
+          <li>Power BI / Power Query dashboards</li>
+          <li>Excel model automation</li>
+          <li>Accounting-system-to-reporting pipelines</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── SELECTED FINANCE SOLUTIONS ── -->
+<div class="wrap">
+  <div class="sec-head" id="solutions">
+    <div class="sec-head-left">
+      <span class="sec-n">02 /</span>
+      <span class="sec-t">Selected Finance Solutions</span>
+    </div>
+    <span class="sec-sub">Example Engagements · Finance System Design</span>
   </div>
 </div>
 
@@ -407,7 +556,7 @@
   <!-- Table header -->
   <div class="reg-head">
     <span class="reg-col">Ref</span>
-    <span class="reg-col">System &amp; Why It Matters</span>
+    <span class="reg-col">Problem → Solution → Outcome</span>
   </div>
 
   <!-- Framework 01 -->
@@ -416,15 +565,13 @@
     <div class="fw-cell cell-main">
       <span class="fw-domain">Cash &amp; Liquidity</span>
       <div class="fw-name">13-Week Cash Flow Forecast</div>
-      <p class="fw-desc">
-        Most companies only find out they're low on cash once the month is already over —
-        because they look at what already happened, not what's coming.
-        This tool looks ahead instead: it tracks money coming in and going out week by week,
-        separates cash you're sure about from cash you're only expecting, flags "what if"
-        situations (like a slow sales month), warns you early if cash is getting tight, and
-        gives you a simple weekly summary you can review at a glance. It can also test whether
-        you'd still meet loan requirements under different scenarios.
-      </p>
+      <div class="fw-flow">
+        <div><span class="flow-label">Problem</span><p class="flow-text">Most companies only find out they're low on cash once the month is already over — because they look at what already happened, not what's coming.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Solution</span><p class="flow-text">A rolling 13-week cash flow that tracks money in and out week by week, separates confirmed cash from expected cash, flags "what-if" scenarios, and tests whether you'd still meet loan requirements under different conditions.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Outcome</span><p class="flow-text">Early warning before cash gets tight, and a simple weekly view you can review at a glance.</p></div>
+      </div>
       <div class="fw-tags">
         <span class="fw-tag">13-Week Outlook</span>
         <span class="fw-tag">Clear Assumptions</span>
@@ -442,14 +589,13 @@
     <div class="fw-cell cell-main">
       <span class="fw-domain">Monthly Books Close</span>
       <div class="fw-name">Month-End Close Tracking System</div>
-      <p class="fw-desc">
-        Closing the books late is rarely about accounting mistakes. It's usually about
-        coordination — tasks scattered across emails, no one sure who owns which reconciliation,
-        and no single place to see what's done and what's still pending.
-        This system fixes that: a close calendar, a tracker showing the status of every
-        reconciliation, a clear list of who owns each task, and simple progress numbers you
-        can check anytime — without chasing people down or holding extra status meetings.
-      </p>
+      <div class="fw-flow">
+        <div><span class="flow-label">Problem</span><p class="flow-text">Closing the books late is rarely about accounting mistakes — it's a coordination problem, with tasks scattered across emails and no one sure who owns which reconciliation.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Solution</span><p class="flow-text">A close calendar, a tracker showing the status of every reconciliation, clear task ownership, and simple progress numbers you can check anytime.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Outcome</span><p class="flow-text">A close that finishes on schedule, without chasing people down or holding extra status meetings.</p></div>
+      </div>
       <div class="fw-tags">
         <span class="fw-tag">Close Calendar</span>
         <span class="fw-tag">Reconciliation Tracker</span>
@@ -467,13 +613,13 @@
     <div class="fw-cell cell-main">
       <span class="fw-domain">Reporting &amp; Dashboards</span>
       <div class="fw-name">Management Reporting Dashboard</div>
-      <p class="fw-desc">
-        Growing businesses often have plenty of accounting data but not much usable information.
-        Financial statements tell you what already happened; this dashboard tells you what needs
-        your attention right now. It pulls revenue, profit margins, expenses, cash flow, and
-        budget-vs-actual results into one simple view — built so an owner or manager can make a
-        decision from it in minutes, instead of digging through spreadsheets.
-      </p>
+      <div class="fw-flow">
+        <div><span class="flow-label">Problem</span><p class="flow-text">Growing businesses often have plenty of accounting data but not much usable information — financial statements show what already happened, not what needs attention now.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Solution</span><p class="flow-text">One dashboard pulling revenue, profit margins, expenses, cash flow, and budget-vs-actual results into a single view.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Outcome</span><p class="flow-text">A decision-ready view in minutes, instead of digging through spreadsheets.</p></div>
+      </div>
       <div class="fw-tags">
         <span class="fw-tag">Monthly Report Pack</span>
         <span class="fw-tag">One-Page Dashboard</span>
@@ -491,14 +637,13 @@
     <div class="fw-cell cell-main">
       <span class="fw-domain">Budgeting &amp; Performance</span>
       <div class="fw-name">Budget vs. Actual Reporting System</div>
-      <p class="fw-desc">
-        Knowing your numbers were "off" isn't useful on its own — you need to know why.
-        A number without an explanation doesn't help anyone make a decision. This system
-        is built to answer the "why": clear notes on the assumptions behind each department's
-        budget, month-over-month tracking of the gaps, a simple chart showing exactly where
-        budget turned into actual results, and a short summary that ties each gap back to a
-        real business decision. Built for management meetings, not just year-end paperwork.
-      </p>
+      <div class="fw-flow">
+        <div><span class="flow-label">Problem</span><p class="flow-text">Knowing your numbers were "off" isn't useful on its own — a number without an explanation doesn't help anyone make a decision.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Solution</span><p class="flow-text">Documented assumptions behind each department's budget, month-over-month gap tracking, and a summary that ties each gap back to a real business driver.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Outcome</span><p class="flow-text">Reporting built for management meetings, not just year-end paperwork.</p></div>
+      </div>
       <div class="fw-tags">
         <span class="fw-tag">Multi-Department Budget</span>
         <span class="fw-tag">Automatic Actuals Import</span>
@@ -516,15 +661,13 @@
     <div class="fw-cell cell-main">
       <span class="fw-domain">Cash Tied Up in the Business</span>
       <div class="fw-name">Working Capital Dashboard</div>
-      <p class="fw-desc">
-        Companies often calculate metrics like "days to collect" or "days to pay" but never
-        connect them to real decisions — because who owes you money lives in one report,
-        who you owe lives in another, and no one sees the full cash picture in between.
-        This dashboard brings it all together: how fast you collect from customers, how you're
-        paying suppliers, how quickly inventory is moving, and an overall cash position summary
-        built for a quick weekly check-in. The goal: connect what's on your balance sheet to
-        what's actually in your bank account.
-      </p>
+      <div class="fw-flow">
+        <div><span class="flow-label">Problem</span><p class="flow-text">Companies often calculate metrics like "days to collect" or "days to pay" but never connect them to real decisions, because who owes you and who you owe live in separate reports.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Solution</span><p class="flow-text">One dashboard combining collection speed, payment speed, inventory turnover, and overall cash position for a quick weekly check-in.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Outcome</span><p class="flow-text">A clear line from what's on your balance sheet to what's actually in your bank account.</p></div>
+      </div>
       <div class="fw-tags">
         <span class="fw-tag">Who Owes You (AR)</span>
         <span class="fw-tag">Who You Owe (AP)</span>
@@ -542,7 +685,7 @@
 <div class="dark-strip">
   <div class="dark-inner">
     <div class="dark-head">
-      <span class="sec-n">02 /</span>
+      <span class="sec-n">03 /</span>
       <span class="sec-t">How I Think About Finance Work</span>
     </div>
     <div class="dark-grid">
@@ -584,7 +727,7 @@
 <div class="method-section" id="approach">
   <div class="method-inner">
     <div class="method-head">
-      <span class="sec-n">03 /</span>
+      <span class="sec-n">04 /</span>
       <span class="sec-t">How I Work</span>
     </div>
     <div class="method-steps">
@@ -626,12 +769,12 @@
 <div class="contact-section" id="contact">
   <div class="contact-inner">
     <div class="contact-head">
-      <span class="sec-n">04 /</span>
+      <span class="sec-n">05 /</span>
       <span class="sec-t">Contact</span>
     </div>
     <div class="contact-layout">
       <div>
-        <h2 class="contact-h">Available for finance control and planning &amp; analysis work.</h2>
+        <h2 class="contact-h">Let's discuss your finance challenges.</h2>
         <p class="contact-p">
           Open to senior analyst, financial controller, and FP&amp;A roles — especially with
           multinational companies, companies with several entities, or businesses modernizing
