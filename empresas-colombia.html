@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Control Financiero para Pymes Colombianas</title>
+  <title>Perfil Profesional — Andrés Felipe Alarcón</title>
   <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAD7klEQVR4nNVWbUybVRQ+t2+7dpRiq1M22YRsHZAMZjVsM7oyMqPAFufc1GJjBIqaKCNq/OHcwE/iH6fTRBOnMQjb0KhbZjKiAvtIVCKtIyzzB9DASqGjFJd2lPZ927f3Hn9cacjWru0mJp5/9+Oc557nnHvOIYgIiymKRbX+XwAoM7qNiJxSQgghJB0Vkk4M+B3GmCAI8U1K6cLlTQHEJRqNOkdGCCFFxcWCICBiSj/SomjC7V6+YsXHBw9+3dkJQABRoVDU2eobm5rijCVVxutKLBZDxFdffmXLZrPVUnP29JkrgYDf7+/t7qkwlzfU1fM7jLFkFlIAUEoR0VZbpwDoOnnyqlOrpaZl3/74OxJKijTlvns8noK78iVJggUBR8SOo0f6+vocdocgCIyxG6EIESORyNtvvjU2NoaI3qmpbQ9X1j9TGw6HZVlGxO6ffrbV1cV9zZiihZqU0pb9zTlZ2lu02R3t7YgoyzJjzGqpcblciJgwEiko4tYppYwxQojDbr/VYMjKyvrtl1/5KSHEdI+JLxOylBSA/w5hXghRUErFcJjvh0Jz/BQA1t9tcjpHON0ZABAApLFvjh757NNPJsddhIBSqdQb9Dxsy5bdDvMBX7VqZSAQAACiSGAtMQAiihF51D2lyjYUlt477PIExSgiq6yqmp6eFiWpqrqakwYAOp0uJscgyXdL8JMZooKQhi/tPQOXsnRqRr0yCGJb5/ih2hcaG33eqTtycyurqyAJ6akB+DPyJWdp+Lw6Z424NGeJ90L9c8/3ekNX7n82rutBKDti8/XrTdt3LQRAILBoFKl5H5f60QCijiz3j9+HPz+I9Xo2dzLA/fdJi5x/27ZtfNU1w/vn7jwwfGBruPfbq/e1t72FQC4x916vR4AMLMsEjRqw/LRoT8Hek+sLDa93vKOVqsbu3gRIyFx1j/t82k0mn1790qSNDQ0ZDQaAQASxSApgCiGxdDc7OwsEZRSeC4iiXp9jnN0fLVWulM15/HOUBpbYzQyxgbOndtsNgOAIv0sAoDCoqJ1JSUlpaUatTovL69sQ9lfMzOBYAj8E0JwauKSt3Dt2u+OHXP025VKZX5BQTyprqEiufAa2dPd/diORxHxvdbWbM3Sp5+y7nxkx6ayDT6fDxErzOUOu+PGaxFXe2lPEy/95wcHH9r64BO7dkejUUR8cvfjbzQ343XLdQoAxlgsFqOUWi2WrVsq7P39nslJj8dzuvdU+f0PPGuzYaqGk7on43xT/PDAgcMdh1UqFde0NTS8uKcRU7XMdKcKbkKW5ZHhYUIURcVFaTb9DKaKq+aURRlb/onbvz943Yz8/4ffvwHtwMk1SDHATwAAAABJRU5ErkJggg==">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -89,6 +89,14 @@
     .cap-cell:hover { background: rgba(255,255,255,0.055); }
     .cap-label { font-family: var(--mono); font-size: 0.55rem; color: var(--s400); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.5rem; }
     .cap-items { font-family: var(--sans); font-size: 0.82rem; color: rgba(255,255,255,0.72); font-weight: 300; line-height: 1.65; }
+
+    /* ── HERO CTA (minimal addition, hero bg makes existing pkg-cta buttons invisible) ── */
+    .hero-cta-row { display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+    .hero-btn { font-family: var(--sans); font-size: 0.85rem; font-weight: 600; padding: 0.8rem 1.5rem; border-radius: var(--r); text-decoration: none; transition: background 0.15s, border-color 0.15s, color 0.15s; }
+    .hero-btn-primary { background: var(--white); color: var(--navy); }
+    .hero-btn-primary:hover { background: var(--s200); }
+    .hero-btn-secondary { background: transparent; color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.25); }
+    .hero-btn-secondary:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
 
     /* ── PROBLEMAS (pain points) ── */
     .problems-strip { background: var(--white); border-top: 1px solid var(--s200); border-bottom: 1px solid var(--s200); }
@@ -276,22 +284,21 @@
       .foot-note { text-align: left; }
     }
   </style>
-</head>
 <body>
 
 <!-- ── NAV ── -->
 <nav>
-  <a href="#" class="nav-brand">
+  <a href="empresas-colombia.html" class="nav-brand">
     <span class="nav-brand-name">Andrés Felipe Alarcón</span>
     <span class="nav-divider"></span>
     <span class="nav-brand-role">Control Financiero · Pymes</span>
   </a>
   <ul class="nav-links">
-    <li><a href="index.html" class="nav-back">← Empresas US</a></li>
-    <li><a href="#problemas">Problemas</a></li>
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#paquetes">Paquetes</a></li>
-    <li><a href="#contacto" class="nav-cta">Hablar</a></li>
+    <li><a href="empresas-colombia.html" class="nav-back">← Volver</a></li>
+    <li><a href="empresas-colombia.html#servicios">Servicios</a></li>
+    <li><a href="empresas-colombia.html#paquetes">Paquetes</a></li>
+    <li><a href="sobre-mi.html">Perfil</a></li>
+    <li><a href="empresas-colombia.html#contacto" class="nav-cta">Hablar</a></li>
   </ul>
   <div class="nav-toggle" onclick="toggleNav()" aria-label="Menú">
     <span></span><span></span><span></span>
@@ -299,523 +306,25 @@
 </nav>
 
 <div class="nav-drawer" id="navDrawer">
-  <a href="index.html" onclick="closeNav()">← Versión en inglés (US Companies)</a>
-  <a href="#problemas" onclick="closeNav()">Problemas que resuelvo</a>
-  <a href="#servicios" onclick="closeNav()">Servicios</a>
-  <a href="#paquetes" onclick="closeNav()">Paquetes</a>
-  <a href="#contacto" onclick="closeNav()">Contacto</a>
+  <a href="empresas-colombia.html" onclick="closeNav()">← Volver a la página principal</a>
+  <a href="empresas-colombia.html#servicios" onclick="closeNav()">Servicios</a>
+  <a href="empresas-colombia.html#paquetes" onclick="closeNav()">Paquetes</a>
+  <a href="empresas-colombia.html#contacto" onclick="closeNav()">Contacto</a>
 </div>
 
-<!-- ── HERO ── -->
-<div class="hero">
+<!-- ── ENCABEZADO DE PÁGINA ── -->
+<div class="hero" style="padding: 7rem 3.5rem 3.5rem;">
   <div class="hero-inner">
-
     <div class="hero-eyeline fi">
-      <span class="hero-eyeline-text">Profesional de Finanzas y Control Financiero para Pymes · FMVA® · FPAP™</span>
+      <span class="hero-eyeline-text">Perfil Profesional</span>
       <span class="hero-eyeline-rule"></span>
       <span class="hero-eyeline-text">Medellín, Colombia · Remoto</span>
     </div>
-
     <div class="fi">
-      <h1 class="hero-name">Andrés Felipe Alarcón</h1>
+      <h1 class="hero-name" style="font-size:clamp(2rem,3vw,2.75rem);">Por qué trabajar conmigo</h1>
     </div>
-
-    <div class="hero-bio fi">
-      <p>
-        Ayudo a pequeñas empresas y negocios familiares colombianos a <strong>entender sus números, organizar su flujo de caja y tomar decisiones financieras con más seguridad.</strong>
-        Este tipo de servicios esta enfocado a empresas que necesitan orden financiero, no jerga.
-      </p>
-    </div>
-
-    <div class="hero-caps fi">
-      <div class="cap-cell">
-        <div class="cap-label">Control Financiero</div>
-        <div class="cap-items">Cierres mensuales<br>Revisión de cuentas<br>Organización contable</div>
-      </div>
-      <div class="cap-cell">
-        <div class="cap-label">Flujo de Caja</div>
-        <div class="cap-items">Proyecciones semanales<br>Control de pagos<br>Anticipar faltantes</div>
-      </div>
-      <div class="cap-cell">
-        <div class="cap-label">Presupuestos y Análisis</div>
-        <div class="cap-items">Presupuesto anual<br>Real vs. presupuestado<br>Rentabilidad por área</div>
-      </div>
-      <div class="cap-cell">
-        <div class="cap-label">Herramientas</div>
-        <div class="cap-items">Excel · Power BI<br>Reportes en español</div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ── PROBLEMAS QUE RESUELVO ── -->
-<div class="problems-strip" id="problemas">
-  <div class="problems-inner">
-    <div class="section-label">01 / Problemas que resuelvo</div>
-    <h2 class="section-title">¿Le suena familiar alguno de estos?</h2>
-    <p class="section-intro">
-      La mayoría de dueños de negocio con los que hablo comparten los mismos dolores financieros.
-      No porque sean malos empresarios, sino porque nadie les organizó las finanzas desde el principio.
-    </p>
-
-    <div class="problems-grid">
-      <div class="problem-card">
-        <div class="problem-icon">💸</div>
-        <div class="problem-title">«Vendemos bien, pero nunca hay plata en la caja»</div>
-        <div class="problem-desc">El negocio factura pero el efectivo se evapora. No hay claridad sobre cuándo entran y cuándo salen los pagos, y cada fin de mes es una sorpresa.</div>
-      </div>
-      <div class="problem-card">
-        <div class="problem-icon">📊</div>
-        <div class="problem-title">«No sé si mi negocio realmente está ganando»</div>
-        <div class="problem-desc">El contador entrega el P&amp;G una vez al año para impuestos, pero usted necesita saber hoy si está operando con margen o perdiendo dinero sin darse cuenta.</div>
-      </div>
-      <div class="problem-card">
-        <div class="problem-icon">📅</div>
-        <div class="problem-title">«Tomamos decisiones sin tener los números»</div>
-        <div class="problem-desc">Contratar personal, abrir una sede, comprar equipos: decisiones grandes tomadas sin información financiera confiable, solo con intuición.</div>
-      </div>
-      <div class="problem-card">
-        <div class="problem-icon">🗂️</div>
-        <div class="problem-title">«El cierre mensual demora semanas y llega tarde»</div>
-        <div class="problem-desc">Los estados financieros llegan tan tarde que ya no sirven para decidir. Y cuando llegan, nadie los entiende bien.</div>
-      </div>
-      <div class="problem-card">
-        <div class="problem-icon">📉</div>
-        <div class="problem-title">«Presupuestamos, pero nadie hace seguimiento»</div>
-        <div class="problem-desc">Se hace un presupuesto en enero y se guarda en un cajón. En junio nadie sabe si se está cumpliendo o en qué se fue el dinero.</div>
-      </div>
-      <div class="problem-card">
-        <div class="problem-icon">🏦</div>
-        <div class="problem-title">«El banco o los socios me piden informes y no tengo»</div>
-        <div class="problem-desc">Cuando un banco, un inversionista o un socio pide proyecciones o estados financieros claros, no hay nada listo para presentar.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ── PARA QUIÉN ── -->
-<div class="audience-strip">
-  <div class="audience-inner">
-    <div class="section-label">02 / Para quién trabajo</div>
-    <h2 class="section-title">Empresas que tienen sentido para este tipo de trabajo</h2>
-    <p class="section-intro">
-      No trabajo con todas las empresas. Trabajo bien con negocios que están en una etapa donde ya generan ingresos pero todavía no tienen un área financiera propia.
-    </p>
-
-    <div class="audience-grid">
-      <div class="audience-card">
-        <div class="audience-name">Empresas de servicios</div>
-        <div class="audience-range">Agencias · Consultoras · Firmas · Salud</div>
-        <div class="audience-desc">Negocios donde los ingresos dependen de proyectos o contratos y el flujo de caja es irregular. Necesitan saber cuándo cobrar, cuánto reservar y cómo proyectar.</div>
-      </div>
-      <div class="audience-card">
-        <div class="audience-name">Constructoras y negocios inmobiliarios</div>
-        <div class="audience-range">Constructoras · Inmobiliarias · Propiedad raíz</div>
-        <div class="audience-desc">Proyectos con ciclos largos, anticipos, fiducias y costos distribuidos en el tiempo. El control financiero por proyecto es crítico y pocas lo tienen bien armado.</div>
-      </div>
-      <div class="audience-card">
-        <div class="audience-name">Empresas familiares en crecimiento</div>
-        <div class="audience-range">Primer o segundo gerente de la familia</div>
-        <div class="audience-desc">Negocios que ya superaron la etapa de sobrevivir y quieren profesionalizar sus finanzas antes de crecer o tomar crédito.</div>
-      </div>
-      <div class="audience-card">
-        <div class="audience-name">Comercio y distribución</div>
-        <div class="audience-range">Mayoristas · Minoristas · Importadores</div>
-        <div class="audience-desc">Negocios con inventario, cuentas por cobrar a clientes y cuentas por pagar a proveedores que necesitan controlar su capital de trabajo.</div>
-      </div>
-      <div class="audience-card">
-        <div class="audience-name">Startups y negocios en formalización</div>
-        <div class="audience-range">Etapa temprana con primeros ingresos reales</div>
-        <div class="audience-desc">Fundadores que quieren arrancar bien desde el principio: con presupuesto, control de gastos y claridad sobre cuándo serán rentables.</div>
-      </div>
-      <div class="audience-card">
-        <div class="audience-name">Empresas sin área financiera propia</div>
-        <div class="audience-range">Ingresos entre COP 500M y COP 10.000M al año</div>
-        <div class="audience-desc">Empresas que ya generan ingresos consistentes pero que aún no tienen un director financiero o área de finanzas interna. Ese es exactamente el espacio donde este trabajo genera más valor.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ── SERVICIOS ── -->
-<div class="services-section" id="servicios">
-  <div class="services-inner">
-    <div class="section-label">03 / Servicios</div>
-    <h2 class="section-title">Qué hago exactamente</h2>
-    <p class="section-intro">
-      Solo ofrezco servicios que realmente puedo prestar con base en experiencia concreta. Sin exageraciones.
-    </p>
-
-    <div class="services-grid">
-
-      <!-- Servicio 1 -->
-      <div class="service-row">
-        <div class="service-main">
-          <div class="service-tag">Flujo de Caja</div>
-          <div class="service-name">Planificación y control del flujo de caja</div>
-          <p class="service-desc">
-            Construyo una proyección de entradas y salidas de efectivo para las próximas semanas o meses,
-            usando los datos reales del negocio. Sirve para saber cuándo habrá faltantes,
-            cuándo se puede pagar a proveedores y cuánto efectivo mínimo se debe mantener.
-          </p>
-          <ul class="service-bullets">
-            <li>Proyección semanal o mensual de ingresos y pagos</li>
-            <li>Identificación de semanas críticas de liquidez</li>
-            <li>Separación entre efectivo comprometido y efectivo disponible</li>
-            <li>Formato simple que el dueño pueda actualizar</li>
-          </ul>
-        </div>
-        <div class="service-side">
-          <div>
-            <div class="service-problem-label">Problema que resuelve</div>
-            <p class="service-problem-text">«Vendemos bien pero siempre estamos cortos de caja al final del mes»</p>
-          </div>
-          <div>
-            <div class="service-price-label">Modalidad</div>
-            <div class="service-price-val">Proyecto puntual o mensual</div>
-            <div class="service-price-note">Incluido en paquetes o por separado</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Servicio 2 -->
-      <div class="service-row">
-        <div class="service-main">
-          <div class="service-tag">Control Financiero</div>
-          <div class="service-name">Control y seguimiento de los resultados financieros mensuales</div>
-          <p class="service-desc">
-            Para tomar buenas decisiones, el gerente necesita conocer los resultados del negocio
-            de manera oportuna y en un formato que realmente se entienda. Me encargo de que
-            al cierre de cada mes usted tenga información financiera confiable, analizada
-            y lista para usarla en la gestión del negocio — no semanas después, cuando ya es tarde.
-            No reemplazo al contador: me enfoco en que la información financiera que él produce
-            sea útil para usted como empresario.
-          </p>
-          <ul class="service-bullets">
-            <li>Revisión de calidad e integridad de los resultados mensuales</li>
-            <li>Validación de que el P&amp;G refleja la realidad operativa del negocio</li>
-            <li>Identificación de variaciones relevantes frente al mes anterior y al presupuesto</li>
-            <li>Resumen gerencial con conclusiones claras y señales de alerta</li>
-          </ul>
-        </div>
-        <div class="service-side">
-          <div>
-            <div class="service-problem-label">Problema que resuelve</div>
-            <p class="service-problem-text">«Cuando recibo los estados financieros ya no sirven para decidir, y encima no los entiendo»</p>
-          </div>
-          <div>
-            <div class="service-price-label">Modalidad</div>
-            <div class="service-price-val">Mensual recurrente</div>
-            <div class="service-price-note">Ideal en paquete de acompañamiento</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Servicio 3 -->
-      <div class="service-row">
-        <div class="service-main">
-          <div class="service-tag">Presupuesto y Seguimiento</div>
-          <div class="service-name">Presupuesto anual y seguimiento mensual real vs. presupuestado</div>
-          <p class="service-desc">
-            Construyo el presupuesto anual del negocio por área o centro de costo,
-            y cada mes comparo lo que pasó realmente con lo que se había planeado.
-            Cuando algo se desvía, explico por qué y qué se puede hacer al respecto.
-          </p>
-          <ul class="service-bullets">
-            <li>Presupuesto por área, producto o proyecto</li>
-            <li>Informe mensual de desviaciones con explicación</li>
-            <li>Identificación de gastos que se están saliendo de control</li>
-            <li>Actualización del presupuesto si el negocio cambia</li>
-          </ul>
-        </div>
-        <div class="service-side">
-          <div>
-            <div class="service-problem-label">Problema que resuelve</div>
-            <p class="service-problem-text">«Hacemos el presupuesto pero nunca sabemos si lo estamos cumpliendo»</p>
-          </div>
-          <div>
-            <div class="service-price-label">Modalidad</div>
-            <div class="service-price-val">Proyecto inicial + seguimiento mensual</div>
-            <div class="service-price-note">Desde el inicio del año o en cualquier mes</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Servicio 4 -->
-      <div class="service-row">
-        <div class="service-main">
-          <div class="service-tag">Reportes Gerenciales</div>
-          <div class="service-name">Informe financiero mensual para el dueño o la junta</div>
-          <p class="service-desc">
-            Preparo un informe mensual que traduce los números del negocio en información útil
-            para tomar decisiones: cómo quedó el mes, en qué se fue el dinero, cómo van los márgenes
-            y qué señales de alerta hay. Presentado en una o dos páginas, sin tecnicismos innecesarios.
-          </p>
-          <ul class="service-bullets">
-            <li>Resumen ejecutivo de resultados del mes</li>
-            <li>Comparativo con el mes anterior y el presupuesto</li>
-            <li>Indicadores clave del negocio (margen, liquidez, cartera)</li>
-            <li>Redactado para gerentes, no para contadores</li>
-          </ul>
-        </div>
-        <div class="service-side">
-          <div>
-            <div class="service-problem-label">Problema que resuelve</div>
-            <p class="service-problem-text">«Tengo estados financieros pero no sé qué me están diciendo»</p>
-          </div>
-          <div>
-            <div class="service-price-label">Modalidad</div>
-            <div class="service-price-val">Mensual recurrente</div>
-            <div class="service-price-note">Complemento del cierre financiero</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Servicio 5 -->
-      <div class="service-row">
-        <div class="service-main">
-          <div class="service-tag">Diagnóstico Financiero</div>
-          <div class="service-name">Diagnóstico financiero inicial del negocio</div>
-          <p class="service-desc">
-            Revisión completa del estado financiero actual de la empresa: cómo están organizadas
-            las cuentas, si los ingresos y gastos están bien clasificados, si el flujo de caja
-            tiene sentido, y qué información falta para tomar mejores decisiones.
-            Entrego un informe con hallazgos y recomendaciones concretas.
-          </p>
-          <ul class="service-bullets">
-            <li>Revisión de estados financieros de los últimos 6–12 meses</li>
-            <li>Evaluación de la estructura de costos y márgenes</li>
-            <li>Identificación de riesgos financieros inmediatos</li>
-            <li>Plan de acción con prioridades claras</li>
-          </ul>
-        </div>
-        <div class="service-side">
-          <div>
-            <div class="service-problem-label">Problema que resuelve</div>
-            <p class="service-problem-text">«Quiero saber en qué estado financiero real está mi empresa»</p>
-          </div>
-          <div>
-            <div class="service-price-label">Modalidad</div>
-            <div class="service-price-val">Proyecto puntual</div>
-            <div class="service-price-note">Ideal como primer paso</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Servicio 6 -->
-      <div class="service-row">
-        <div class="service-main">
-          <div class="service-tag">Herramientas Financieras</div>
-          <div class="service-name">Tableros y herramientas financieras en Excel o Power BI</div>
-          <p class="service-desc">
-            Diseño herramientas prácticas que el equipo del negocio pueda usar sin depender de mí:
-            tableros de control en Excel, modelos de flujo de caja actualizables, comparativos
-            de presupuesto, o reportes automáticos que conecten con los datos de contabilidad.
-          </p>
-          <ul class="service-bullets">
-            <li>Modelo de flujo de caja en Excel (actualizable)</li>
-            <li>Dashboard de indicadores financieros clave</li>
-            <li>Plantilla de presupuesto y seguimiento</li>
-            <li>Capacitación básica para que el equipo lo use</li>
-          </ul>
-        </div>
-        <div class="service-side">
-          <div>
-            <div class="service-problem-label">Problema que resuelve</div>
-            <p class="service-problem-text">«Necesito una herramienta que no requiera llamarme cada semana»</p>
-          </div>
-          <div>
-            <div class="service-price-label">Modalidad</div>
-            <div class="service-price-val">Proyecto con entregable</div>
-            <div class="service-price-note">Único pago, herramienta queda en su poder</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Servicio 7 -->
-      <div class="service-row">
-        <div class="service-main">
-          <div class="service-tag">Preparación Financiera · Crédito</div>
-          <div class="service-name">Preparación de información financiera para solicitudes de crédito</div>
-          <p class="service-desc">
-            Cuando una empresa va a solicitar un crédito bancario, leasing o cupo de financiación,
-            los bancos piden información financiera organizada: flujos de caja proyectados, estados
-            financieros interpretados, indicadores de endeudamiento y capacidad de pago.
-            Muchas pymes pierden oportunidades de financiación no porque no clasifiquen,
-            sino porque presentan la información desordenada o incompleta.
-            Ayudo a organizar y estructurar esa información de manera clara y coherente,
-            para que el banco entienda bien la situación financiera del negocio.
-          </p>
-          <ul class="service-bullets">
-            <li>Organización y revisión de estados financieros para presentar al banco</li>
-            <li>Proyección de flujo de caja que sustente la capacidad de pago</li>
-            <li>Resumen ejecutivo financiero del negocio en formato bancario</li>
-            <li>Revisión de indicadores clave que los bancos normalmente evalúan</li>
-            <li>Apoyo en la preparación del paquete documental financiero</li>
-          </ul>
-          <p style="font-family:var(--sans);font-size:0.76rem;color:var(--s500);margin-top:0.75rem;padding:0.6rem 0.8rem;background:var(--s50);border-left:2px solid var(--s300);border-radius:0 var(--r-sm) var(--r-sm) 0;">
-            <strong style="color:var(--s600);">Aclaración:</strong> Este servicio se enfoca en la organización y preparación de información financiera.
-            No gestiono relaciones bancarias, no aseguro aprobaciones ni garantizo resultados con entidades financieras en este tipo de servicio.
-          </p>
-        </div>
-        <div class="service-side">
-          <div>
-            <div class="service-problem-label">Problema que resuelve</div>
-            <p class="service-problem-text">«El banco me pidió proyecciones y estados financieros y no sé cómo presentarlos bien»</p>
-          </div>
-          <div>
-            <div class="service-price-label">Modalidad</div>
-            <div class="service-price-val">Proyecto puntual</div>
-            <div class="service-price-note">Precio según complejidad y alcance</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- ── PAQUETES ── -->
-<div class="packages-section" id="paquetes">
-  <div class="packages-inner">
-    <div class="section-label">04 / Paquetes</div>
-    <h2 class="section-title">Opciones de trabajo</h2>
-    <p class="section-intro">
-      Tres formas de empezar, según lo que necesite la empresa en este momento.
-      Los precios son orientativos — cada empresa es diferente y ajustamos según el alcance real.
-    </p>
-
-    <div class="transparency-bar">
-      <div class="transparency-bar-icon">ℹ️</div>
-      <div class="transparency-bar-text">
-        <strong>Transparencia:</strong> Los rangos de precio abajo son referencias.
-        Antes de cualquier acuerdo hacemos una conversación sin costo para entender su situación
-        y definir exactamente qué se necesita sin cobro.
-      </div>
-    </div>
-
-    <div class="packages-grid">
-
-      <!-- Paquete Starter -->
-      <div class="pkg-card">
-        <div class="pkg-header">
-          <div class="pkg-badge starter">Inicio</div>
-          <div class="pkg-name">Diagnóstico + Hoja de ruta</div>
-          <div class="pkg-target">Para empresas que quieren saber dónde están y por dónde empezar, sin compromiso de largo plazo.</div>
-        </div>
-        <div class="pkg-price">
-          <div class="pkg-price-val">COP 1M – 1.5M<span class="pkg-price-period">/ único pago</span></div>
-          <div class="pkg-price-note">Varía según tamaño y complejidad de la empresa</div>
-        </div>
-        <div class="pkg-body">
-          <div class="pkg-includes-label">Incluye</div>
-          <ul class="pkg-list">
-            <li>Revisión de estados financieros (últimos 6–12 meses)</li>
-            <li>Diagnóstico de flujo de caja y márgenes</li>
-            <li>Identificación de los 3 principales problemas financieros</li>
-            <li>Informe escrito con hallazgos y recomendaciones</li>
-            <li>Reunión de presentación de resultados (1 hora)</li>
-          </ul>
-        </div>
-        <div class="pkg-footer">
-          <a href="mailto:aalarco2@eafit.edu.co?subject=Consulta%20paquete%20Diagnóstico" class="pkg-cta secondary">Solicitar información →</a>
-        </div>
-      </div>
-
-      <!-- Paquete Popular -->
-      <div class="pkg-card featured">
-        <div class="pkg-header">
-          <div class="pkg-badge popular">Más solicitado</div>
-          <div class="pkg-name">Acompañamiento Financiero Mensual</div>
-          <div class="pkg-target">Para empresas que necesitan control financiero continuo sin contratar un empleado de tiempo completo.</div>
-        </div>
-        <div class="pkg-price">
-          <div class="pkg-price-val">COP 2M – 3M<span class="pkg-price-period">/ mes</span></div>
-          <div class="pkg-price-note">Contrato mínimo de 3 meses · Ajustable según alcance</div>
-        </div>
-        <div class="pkg-body">
-          <div class="pkg-includes-label">Incluye cada mes</div>
-          <ul class="pkg-list">
-            <li>Revisión y cierre financiero mensual</li>
-            <li>Proyección de flujo de caja (4–8 semanas adelante)</li>
-            <li>Informe gerencial con indicadores clave</li>
-            <li>Seguimiento real vs. presupuesto con análisis de desviaciones</li>
-            <li>Una reunión de revisión mensual (60–90 min)</li>
-            <li>Disponibilidad para consultas puntuales vía WhatsApp o email</li>
-          </ul>
-        </div>
-        <div class="pkg-footer">
-          <a href="mailto:aalarco2@eafit.edu.co?subject=Consulta%20paquete%20Acompañamiento%20Mensual" class="pkg-cta primary">Agendar llamada sin costo →</a>
-        </div>
-      </div>
-
-      <!-- Paquete Completo -->
-      <div class="pkg-card">
-        <div class="pkg-header">
-          <div class="pkg-badge completo">Completo</div>
-          <div class="pkg-name">Control Financiero + Herramienta</div>
-          <div class="pkg-target">Para empresas que quieren acompañamiento mensual más una herramienta propia que les quede funcionando.</div>
-        </div>
-        <div class="pkg-price">
-          <div class="pkg-price-val">COP 3M – 5M<span class="pkg-price-period">/ primer mes</span></div>
-          <div class="pkg-price-note">Incluye setup inicial + herramienta · Luego mensual desde COP 2.5M</div>
-        </div>
-        <div class="pkg-body">
-          <div class="pkg-includes-label">Incluye</div>
-          <ul class="pkg-list">
-            <li>Todo lo del paquete Mensual</li>
-            <li>Modelo de flujo de caja en Excel personalizado</li>
-            <li>Dashboard de indicadores financieros en Excel o Power BI</li>
-            <li>Plantilla de presupuesto y seguimiento adaptada al negocio</li>
-            <li>Sesión de capacitación al equipo (cómo usar las herramientas)</li>
-            <li>Las herramientas quedan en poder de la empresa</li>
-          </ul>
-        </div>
-        <div class="pkg-footer">
-          <a href="mailto:aalarco2@eafit.edu.co?subject=Consulta%20paquete%20Completo" class="pkg-cta secondary">Solicitar información →</a>
-        </div>
-      </div>
-
-    </div>
-
-    <p class="pkg-disclaimer">
-      También trabajo en proyectos puntuales fuera de paquetes (diagnósticos, modelos específicos, presentaciones para banco o socios).
-      Si su situación es diferente a las opciones de arriba, escríbame y lo miramos.
-    </p>
-  </div>
-</div>
-
-<!-- ── CÓMO TRABAJO ── -->
-<div class="process-section">
-  <div class="process-inner">
-    <div class="process-head">
-      <div class="section-label">05 / Cómo trabajo</div>
-      <h2 class="section-title">El proceso, paso a paso</h2>
-      <p class="section-intro">Sin burocracia, sin presentaciones largas. Así funciona normalmente un proyecto.</p>
-    </div>
-
-    <div class="process-steps">
-      <div class="proc-step">
-        <div class="proc-num">01 /</div>
-        <div class="proc-title">Llamada inicial sin costo</div>
-        <div class="proc-desc">Conversamos 30–45 minutos sobre la situación del negocio, qué está pasando con las finanzas y qué necesita. Sin compromiso.</div>
-      </div>
-      <div class="proc-step">
-        <div class="proc-num">02 /</div>
-        <div class="proc-title">Propuesta concreta</div>
-        <div class="proc-desc">Si hay encaje, envío una propuesta escrita con alcance claro, precio exacto y tiempos. Sin sorpresas después.</div>
-      </div>
-      <div class="proc-step">
-        <div class="proc-num">03 /</div>
-        <div class="proc-title">Trabajo sobre sus números reales</div>
-        <div class="proc-desc">Trabajo con la información que ya tiene la empresa: estados financieros, extractos, reportes de contabilidad. No necesita tenerlo todo perfecto.</div>
-      </div>
-      <div class="proc-step">
-        <div class="proc-num">04 /</div>
-        <div class="proc-title">Entregables útiles y lenguaje claro</div>
-        <div class="proc-desc">Todo lo que entrego está pensado para que el dueño del negocio lo entienda y lo use, no para impresionar con tecnicismos.</div>
-      </div>
+    <div class="fi">
+      <a href="empresas-colombia.html" class="hero-btn hero-btn-secondary" style="margin-top:0.5rem;">← Volver a la página principal</a>
     </div>
   </div>
 </div>
@@ -825,7 +334,7 @@
   <div class="why-inner">
 
     <div class="why-left">
-      <div class="section-label">06 / Por qué yo</div>
+      <div class="section-label">Perfil</div>
       <p class="context-bio">
         «No vendo lo que no puedo entregar. Trabajo con lo que sé hacer bien.»
       </p>
@@ -884,54 +393,11 @@
   </div>
 </div>
 
-<!-- ── CONTACTO ── -->
-<div class="contact-section" id="contacto">
-  <div class="contact-inner">
-    <div class="contact-head">
-      <span style="font-family:var(--mono);font-size:0.57rem;color:var(--s400);letter-spacing:0.12em;">07 /</span>
-      <span style="font-family:var(--serif);font-size:1.45rem;font-weight:400;color:var(--navy);">Hablemos</span>
-    </div>
-
-    <div class="contact-layout">
-      <div>
-        <h2 class="contact-h">¿Tiene dudas sobre las finanzas de su negocio?</h2>
-        <p class="contact-p">
-          La primera conversación es sin costo y sin compromiso. Cuénteme qué está pasando
-          con su empresa y vemos juntos si puedo ayudarle. Si no encajo con lo que necesita,
-          se lo digo con honestidad.
-        </p>
-        <p class="contact-p">
-          Trabajo de forma remota con empresas en todo Colombia,
-          y presencial en Medellín si la situación lo requiere.
-        </p>
-        <div class="contact-note">
-          <strong>Lo más fácil:</strong> escríbame al correo o por LinkedIn con una descripción breve
-          de su empresa y qué le preocupa en este momento. Le respondo en menos de 24 horas.
-        </div>
-      </div>
-
-      <div class="contact-rows">
-        <a href="mailto:aalarco2@eafit.edu.co?subject=Consulta%20servicios%20financieros%20pymes" class="c-row">
-          <span class="c-label">Correo</span>
-          <span class="c-val">aalarco2@eafit.edu.co <span class="c-arrow">→</span></span>
-        </a>
-        <a href="https://www.linkedin.com/in/aalarconfp/" target="_blank" class="c-row">
-          <span class="c-label">LinkedIn</span>
-          <span class="c-val">linkedin.com/in/aalarconfp <span class="c-arrow">↗</span></span>
-        </a>
-        <a href="https://aalarconfp.github.io" target="_blank" class="c-row">
-          <span class="c-label">Portafolio</span>
-          <span class="c-val">aalarconfp.github.io <span class="c-arrow">↗</span></span>
-        </a>
-        <a href="https://www.credential.net/profile/aalarconfp/wallet" target="_blank" class="c-row">
-          <span class="c-label">Certificaciones</span>
-          <span class="c-val">Ver credenciales verificadas <span class="c-arrow">↗</span></span>
-        </a>
-        <div class="c-row" style="cursor:default;">
-          <span class="c-label">Ubicación</span>
-          <span class="c-val" style="color:var(--s600);font-weight:400;">Medellín, Colombia · Trabajo remoto</span>
-        </div>
-      </div>
+<!-- ── CONTACTO CTA ── -->
+<div style="background:var(--s50);border-top:1px solid var(--s200);padding:3rem 3.5rem;">
+  <div style="max-width:1080px;margin:0 auto;">
+    <div class="contact-note" style="max-width:640px;">
+      ¿Le hace sentido lo que hago? <a href="empresas-colombia.html#contacto" style="color:var(--blue);font-weight:600;text-decoration:none;">Hablemos →</a>
     </div>
   </div>
 </div>
