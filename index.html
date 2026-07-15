@@ -199,6 +199,8 @@
     .btn-primary:hover { background: var(--s200); }
     .btn-secondary { background: transparent; color: rgba(255,255,255,0.82); border: 1px solid rgba(255,255,255,0.25); }
     .btn-secondary:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
+    .btn-outline { background: transparent; color: var(--navy); border: 1px solid var(--s300); }
+    .btn-outline:hover { border-color: var(--navy); background: var(--s100); }
 
     .cred-strip { display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap; margin-bottom: 3rem; }
     .cred-chip { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
@@ -213,7 +215,7 @@
     .svc-label-cell { padding: 1.75rem 1.5rem; border-right: 1px solid var(--s200); }
     .svc-domain { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); font-weight: 500; margin-bottom: 0.55rem; display: block; }
     .svc-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; color: var(--navy); line-height: 1.32; }
-    .svc-main-cell { padding: 1.75rem 1.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+    .svc-main-cell { padding: 1.75rem 1.5rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem; }
     .svc-col-label { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--s500); margin-bottom: 0.6rem; display: block; }
     .svc-col-list { list-style: none; font-family: var(--sans); font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
     .svc-col-list li { padding-left: 0.9rem; position: relative; margin-bottom: 0.4rem; }
@@ -302,7 +304,7 @@
   <ul class="nav-links">
     <li><a href="empresas-colombia.html" style="color:var(--blue);border:1px solid var(--blue-light);border-radius:2px;">🇨🇴 Empresas Colombia</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#solutions">Solutions</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
     <li><a href="#approach">Approach</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
@@ -315,7 +317,7 @@
 <div class="nav-drawer" id="navDrawer">
   <a href="empresas-colombia.html" onclick="closeNav()" style="color:#1d4ed8;font-weight:600;">🇨🇴 Servicios para Empresas Colombianas</a>
   <a href="#services" onclick="closeNav()">Services</a>
-  <a href="#solutions" onclick="closeNav()">Solutions</a>
+  <a href="solutions.html" onclick="closeNav()">Solutions</a>
   <a href="#approach" onclick="closeNav()">Approach</a>
   <a href="about.html" onclick="closeNav()">About</a>
   <a href="#contact" onclick="closeNav()">Contact</a>
@@ -415,14 +417,6 @@
           <li>Internal controls</li>
         </ul>
       </div>
-      <div>
-        <span class="svc-col-label">Typical Engagements</span>
-        <ul class="svc-col-list">
-          <li>Monthly close management</li>
-          <li>Multi-entity reconciliations</li>
-          <li>Statement prep under US GAAP / IFRS</li>
-        </ul>
-      </div>
     </div>
   </div>
 
@@ -449,14 +443,6 @@
           <li>KPI reporting</li>
         </ul>
       </div>
-      <div>
-        <span class="svc-col-label">Typical Engagements</span>
-        <ul class="svc-col-list">
-          <li>Annual budget build</li>
-          <li>Rolling forecast models</li>
-          <li>Budget-vs-actual reporting</li>
-        </ul>
-      </div>
     </div>
   </div>
 
@@ -481,14 +467,6 @@
           <li>13-week cash flow</li>
           <li>Working capital tracking</li>
           <li>Liquidity planning</li>
-        </ul>
-      </div>
-      <div>
-        <span class="svc-col-label">Typical Engagements</span>
-        <ul class="svc-col-list">
-          <li>Rolling 13-week cash flow build</li>
-          <li>AR / AP &amp; working capital dashboards</li>
-          <li>Liquidity scenario testing</li>
         </ul>
       </div>
     </div>
@@ -518,217 +496,21 @@
           <li>SQL &amp; process automation</li>
         </ul>
       </div>
-      <div>
-        <span class="svc-col-label">Typical Engagements</span>
-        <ul class="svc-col-list">
-          <li>Power BI / Power Query dashboards</li>
-          <li>Excel model automation</li>
-          <li>Accounting-system-to-reporting pipelines</li>
-        </ul>
-      </div>
     </div>
   </div>
 
 </div>
 
-<!-- ── SELECTED FINANCE SOLUTIONS ── -->
-<div class="wrap">
-  <div class="sec-head" id="solutions">
-    <div class="sec-head-left">
-      <span class="sec-n">02 /</span>
-      <span class="sec-t">Selected Finance Solutions</span>
-    </div>
-    <span class="sec-sub">Example Engagements · Finance System Design</span>
-  </div>
-</div>
-
-<div class="wrap" style="padding-top:0;">
-  <div class="disclaimer-bar">
-    <span class="disclaimer-bar-icon">NOTE</span>
-    <p class="disclaimer-bar-text">
-      Below are examples of how I approach common finance problems that businesses run into.
-      <strong>These are sample projects based on my real work experience</strong> — they are not
-      actual client files or confidential data. No real company names, client information, or
-      real financial numbers are shown.
-    </p>
-  </div>
-
-  <!-- Table header -->
-  <div class="reg-head">
-    <span class="reg-col">Ref</span>
-    <span class="reg-col">Problem → Solution → Outcome</span>
-  </div>
-
-  <!-- Framework 01 -->
-  <div class="fw-row">
-    <div class="fw-cell cell-ref"><span class="ref-num">F-01</span></div>
-    <div class="fw-cell cell-main">
-      <span class="fw-domain">Cash &amp; Liquidity</span>
-      <div class="fw-name">13-Week Cash Flow Forecast</div>
-      <div class="fw-flow">
-        <div><span class="flow-label">Problem</span><p class="flow-text">Most companies only find out they're low on cash once the month is already over — because they look at what already happened, not what's coming.</p></div>
-        <div class="flow-arrow">↓</div>
-        <div><span class="flow-label">Solution</span><p class="flow-text">A rolling 13-week cash flow that tracks money in and out week by week, separates confirmed cash from expected cash, flags "what-if" scenarios, and tests whether you'd still meet loan requirements under different conditions.</p></div>
-        <div class="flow-arrow">↓</div>
-        <div><span class="flow-label">Outcome</span><p class="flow-text">Early warning before cash gets tight, and a simple weekly view you can review at a glance.</p></div>
-      </div>
-      <div class="fw-tags">
-        <span class="fw-tag">13-Week Outlook</span>
-        <span class="fw-tag">Clear Assumptions</span>
-        <span class="fw-tag">What-If Scenarios</span>
-        <span class="fw-tag">Low-Cash Alerts</span>
-        <span class="fw-tag">Loan Requirement Check</span>
-        <span class="fw-tag">Weekly Summary</span>
-      </div>
-    </div>
-    </div>
-
-  <!-- Framework 02 -->
-  <div class="fw-row">
-    <div class="fw-cell cell-ref"><span class="ref-num">F-02</span></div>
-    <div class="fw-cell cell-main">
-      <span class="fw-domain">Monthly Books Close</span>
-      <div class="fw-name">Month-End Close Tracking System</div>
-      <div class="fw-flow">
-        <div><span class="flow-label">Problem</span><p class="flow-text">Closing the books late is rarely about accounting mistakes — it's a coordination problem, with tasks scattered across emails and no one sure who owns which reconciliation.</p></div>
-        <div class="flow-arrow">↓</div>
-        <div><span class="flow-label">Solution</span><p class="flow-text">A close calendar, a tracker showing the status of every reconciliation, clear task ownership, and simple progress numbers you can check anytime.</p></div>
-        <div class="flow-arrow">↓</div>
-        <div><span class="flow-label">Outcome</span><p class="flow-text">A close that finishes on schedule, without chasing people down or holding extra status meetings.</p></div>
-      </div>
-      <div class="fw-tags">
-        <span class="fw-tag">Close Calendar</span>
-        <span class="fw-tag">Reconciliation Tracker</span>
-        <span class="fw-tag">Clear Task Ownership</span>
-        <span class="fw-tag">Early Warning Flags</span>
-        <span class="fw-tag">Progress at a Glance</span>
-        <span class="fw-tag">Multiple Companies</span>
-      </div>
-    </div>
-    </div>
-
-  <!-- Framework 03 -->
-  <div class="fw-row">
-    <div class="fw-cell cell-ref"><span class="ref-num">F-03</span></div>
-    <div class="fw-cell cell-main">
-      <span class="fw-domain">Reporting &amp; Dashboards</span>
-      <div class="fw-name">Management Reporting Dashboard</div>
-      <div class="fw-flow">
-        <div><span class="flow-label">Problem</span><p class="flow-text">Growing businesses often have plenty of accounting data but not much usable information — financial statements show what already happened, not what needs attention now.</p></div>
-        <div class="flow-arrow">↓</div>
-        <div><span class="flow-label">Solution</span><p class="flow-text">One dashboard pulling revenue, profit margins, expenses, cash flow, and budget-vs-actual results into a single view.</p></div>
-        <div class="flow-arrow">↓</div>
-        <div><span class="flow-label">Outcome</span><p class="flow-text">A decision-ready view in minutes, instead of digging through spreadsheets.</p></div>
-      </div>
-      <div class="fw-tags">
-        <span class="fw-tag">Monthly Report Pack</span>
-        <span class="fw-tag">One-Page Dashboard</span>
-        <span class="fw-tag">Revenue Trends</span>
-        <span class="fw-tag">Margin Tracking</span>
-        <span class="fw-tag">Cash Flow at a Glance</span>
-        <span class="fw-tag">Owner-Ready Reports</span>
-      </div>
-    </div>
-    </div>
-
-  <!-- Framework 04 -->
-  <div class="fw-row">
-    <div class="fw-cell cell-ref"><span class="ref-num">F-04</span></div>
-    <div class="fw-cell cell-main">
-      <span class="fw-domain">Budgeting &amp; Performance</span>
-      <div class="fw-name">Budget vs. Actual Reporting System</div>
-      <div class="fw-flow">
-        <div><span class="flow-label">Problem</span><p class="flow-text">Knowing your numbers were "off" isn't useful on its own — a number without an explanation doesn't help anyone make a decision.</p></div>
-        <div class="flow-arrow">↓</div>
-        <div><span class="flow-label">Solution</span><p class="flow-text">Documented assumptions behind each department's budget, month-over-month gap tracking, and a summary that ties each gap back to a real business driver.</p></div>
-        <div class="flow-arrow">↓</div>
-        <div><span class="flow-label">Outcome</span><p class="flow-text">Reporting built for management meetings, not just year-end paperwork.</p></div>
-      </div>
-      <div class="fw-tags">
-        <span class="fw-tag">Multi-Department Budget</span>
-        <span class="fw-tag">Automatic Actuals Import</span>
-        <span class="fw-tag">Clear Assumptions</span>
-        <span class="fw-tag">Visual Budget-to-Actual</span>
-        <span class="fw-tag">Expense Trend Tracking</span>
-        <span class="fw-tag">Ready for Leadership</span>
-      </div>
-    </div>
-    </div>
-
-  <!-- Framework 05 -->
-  <div class="fw-row">
-    <div class="fw-cell cell-ref"><span class="ref-num">F-05</span></div>
-    <div class="fw-cell cell-main">
-      <span class="fw-domain">Cash Tied Up in the Business</span>
-      <div class="fw-name">Working Capital Dashboard</div>
-      <div class="fw-flow">
-        <div><span class="flow-label">Problem</span><p class="flow-text">Companies often calculate metrics like "days to collect" or "days to pay" but never connect them to real decisions, because who owes you and who you owe live in separate reports.</p></div>
-        <div class="flow-arrow">↓</div>
-        <div><span class="flow-label">Solution</span><p class="flow-text">One dashboard combining collection speed, payment speed, inventory turnover, and overall cash position for a quick weekly check-in.</p></div>
-        <div class="flow-arrow">↓</div>
-        <div><span class="flow-label">Outcome</span><p class="flow-text">A clear line from what's on your balance sheet to what's actually in your bank account.</p></div>
-      </div>
-      <div class="fw-tags">
-        <span class="fw-tag">Who Owes You (AR)</span>
-        <span class="fw-tag">Who You Owe (AP)</span>
-        <span class="fw-tag">Collection &amp; Payment Speed</span>
-        <span class="fw-tag">Cash Conversion Cycle</span>
-        <span class="fw-tag">Inventory Turnover</span>
-        <span class="fw-tag">Cash Position</span>
-      </div>
-    </div>
-    </div>
-
-</div><!-- /wrap -->
-
-<!-- ── FINANCE OPERATIONS PHILOSOPHY ── -->
-<div class="dark-strip">
-  <div class="dark-inner">
-    <div class="dark-head">
-      <span class="sec-n">03 /</span>
-      <span class="sec-t">How I Think About Finance Work</span>
-    </div>
-    <div class="dark-grid">
-      <div class="dark-cell">
-        <div class="dark-cell-tag">Principle I</div>
-        <div class="dark-cell-title">Get the numbers right before making them look good</div>
-        <div class="dark-cell-desc">
-          A fast report built on bad numbers is worse than no report — it gives you false
-          confidence when you're making a decision. Before building anything, I always ask:
-          what does it take for this number to be trustworthy, every single month? That answer
-          shapes how the whole system is built, not just how it looks.
-        </div>
-      </div>
-      <div class="dark-cell">
-        <div class="dark-cell-tag">Principle II</div>
-        <div class="dark-cell-title">Fix the process first, then build the dashboard</div>
-        <div class="dark-cell-desc">
-          A dashboard should be the last step of a well-run process, not a shortcut around one.
-          Systems built backwards — starting with a pretty chart and figuring out the process
-          later — tend to break once real work piles up. Before writing a single formula, I map
-          out where the data comes from, who owns it, how it's categorized, and who checks it.
-        </div>
-      </div>
-      <div class="dark-cell">
-        <div class="dark-cell-tag">Principle III</div>
-        <div class="dark-cell-title">Simple systems are stronger than complicated ones</div>
-        <div class="dark-cell-desc">
-          Financial controls fail when they're too complicated for the people running them to
-          use consistently. The best systems are structured enough to grow with the business,
-          simple enough that anyone can double-check them, and clear enough that if something
-          looks off, you'll spot it right away — no guesswork needed.
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="wrap" style="padding: 0 3.5rem 3.5rem;">
+  <a href="solutions.html" class="btn btn-outline">See Selected Finance Solutions →</a>
 </div>
 
 <!-- ── METHODOLOGY ── -->
 <div class="method-section" id="approach">
   <div class="method-inner">
     <div class="method-head">
-      <span class="sec-n">04 /</span>
-      <span class="sec-t">How I Work</span>
+      <span class="sec-n">02 /</span>
+      <span class="sec-t">Process</span>
     </div>
     <div class="method-steps">
       <div class="method-step">
@@ -769,7 +551,7 @@
 <div class="contact-section" id="contact">
   <div class="contact-inner">
     <div class="contact-head">
-      <span class="sec-n">05 /</span>
+      <span class="sec-n">03 /</span>
       <span class="sec-t">Contact</span>
     </div>
     <div class="contact-layout">
