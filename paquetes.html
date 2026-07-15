@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paquetes y Precios — Andrés Felipe Alarcón</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAD7klEQVR4nNVWbUybVRQ+t2+7dpRiq1M22YRsHZAMZjVsM7oyMqPAFufc1GJjBIqaKCNq/OHcwE/iH6fTRBOnMQjb0KhbZjKiAvtIVCKtIyzzB9DASqGjFJd2lPZ927f3Hn9cacjWru0mJp5/9+Oc557nnHvOIYgIiymKRbX+XwAoM7qNiJxSQgghJB0Vkk4M+B3GmCAI8U1K6cLlTQHEJRqNOkdGCCFFxcWCICBiSj/SomjC7V6+YsXHBw9+3dkJQABRoVDU2eobm5rijCVVxutKLBZDxFdffmXLZrPVUnP29JkrgYDf7+/t7qkwlzfU1fM7jLFkFlIAUEoR0VZbpwDoOnnyqlOrpaZl3/74OxJKijTlvns8noK78iVJggUBR8SOo0f6+vocdocgCIyxG6EIESORyNtvvjU2NoaI3qmpbQ9X1j9TGw6HZVlGxO6ffrbV1cV9zZiihZqU0pb9zTlZ2lu02R3t7YgoyzJjzGqpcblciJgwEiko4tYppYwxQojDbr/VYMjKyvrtl1/5KSHEdI+JLxOylBSA/w5hXghRUErFcJjvh0Jz/BQA1t9tcjpHON0ZABAApLFvjh757NNPJsddhIBSqdQb9Dxsy5bdDvMBX7VqZSAQAACiSGAtMQAiihF51D2lyjYUlt477PIExSgiq6yqmp6eFiWpqrqakwYAOp0uJscgyXdL8JMZooKQhi/tPQOXsnRqRr0yCGJb5/ih2hcaG33eqTtycyurqyAJ6akB+DPyJWdp+Lw6Z424NGeJ90L9c8/3ekNX7n82rutBKDti8/XrTdt3LQRAILBoFKl5H5f60QCijiz3j9+HPz+I9Xo2dzLA/fdJi5x/27ZtfNU1w/vn7jwwfGBruPfbq/e1t72FQC4x916vR4AMLMsEjRqw/LRoT8Hek+sLDa93vKOVqsbu3gRIyFx1j/t82k0mn1790qSNDQ0ZDQaAQASxSApgCiGxdDc7OwsEZRSeC4iiXp9jnN0fLVWulM15/HOUBpbYzQyxgbOndtsNgOAIv0sAoDCoqJ1JSUlpaUatTovL69sQ9lfMzOBYAj8E0JwauKSt3Dt2u+OHXP025VKZX5BQTyprqEiufAa2dPd/diORxHxvdbWbM3Sp5+y7nxkx6ayDT6fDxErzOUOu+PGaxFXe2lPEy/95wcHH9r64BO7dkejUUR8cvfjbzQ343XLdQoAxlgsFqOUWi2WrVsq7P39nslJj8dzuvdU+f0PPGuzYaqGk7on43xT/PDAgcMdh1UqFde0NTS8uKcRU7XMdKcKbkKW5ZHhYUIURcVFaTb9DKaKq+aURRlb/onbvz943Yz8/4ffvwHtwMk1SDHATwAAAABJRU5ErkJggg==">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy:       #0b1524;
+      --navy-mid:   #0f1e33;
+      --blue:       #1d4ed8;
+      --blue-light: #dbeafe;
+      --green:      #16a34a;
+      --green-light:#dcfce7;
+      --amber:      #d97706;
+      --amber-light:#fef3c7;
+      --s700: #334155; --s600: #475569; --s500: #64748b;
+      --s400: #94a3b8; --s300: #cbd5e1; --s200: #e2e8f0;
+      --s100: #f1f5f9; --s50:  #f8fafc;
+      --white: #ffffff; --text: #1e293b; --muted: #475569;
+      --serif: 'Lora', Georgia, serif;
+      --sans:  'Source Sans 3', system-ui, sans-serif;
+      --mono:  'JetBrains Mono', monospace;
+      --r: 4px; --r-sm: 2px; --r-lg: 8px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--s50); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.65; overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: var(--white); border-bottom: 1px solid var(--s200);
+      padding: 0 3.5rem; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 0.875rem; text-decoration: none; }
+    .nav-brand-name { font-family: var(--sans); font-size: 0.875rem; font-weight: 600; color: var(--navy); letter-spacing: -0.01em; }
+    .nav-divider { width: 1px; height: 14px; background: var(--s300); }
+    .nav-brand-role { font-family: var(--mono); font-size: 0.6rem; color: var(--s500); letter-spacing: 0.05em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
+    .nav-links a { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--s500); text-decoration: none; padding: 0.38rem 0.7rem; border-radius: var(--r-sm); transition: color 0.15s, background 0.15s; }
+    .nav-links a:hover { color: var(--navy); background: var(--s100); }
+    .nav-cta { background: var(--navy) !important; color: var(--white) !important; }
+    .nav-cta:hover { background: #182d4a !important; }
+    .nav-back { border: 1px solid var(--s200) !important; color: var(--s600) !important; }
+    .nav-back:hover { background: var(--s100) !important; color: var(--navy) !important; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-toggle span { display: block; width: 20px; height: 1.5px; background: var(--navy); }
+    .nav-drawer { display: none; position: fixed; top: 56px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--s200); padding: 1.25rem 2rem; z-index: 199; flex-direction: column; gap: 1rem; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--s600); text-decoration: none; }
+
+    /* ── HERO ── */
+    .hero { background: var(--navy); padding: 7rem 3.5rem 5rem; position: relative; overflow: hidden; }
+    .hero::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 72px 72px;
+    }
+    .hero-inner { max-width: 1080px; margin: 0 auto; position: relative; z-index: 1; }
+    .hero-eyeline { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem; }
+    .hero-eyeline-text { font-family: var(--mono); font-size: 0.57rem; color: var(--s400); letter-spacing: 0.18em; text-transform: uppercase; }
+    .hero-eyeline-rule { flex: 1; height: 1px; background: rgba(255,255,255,0.07); }
+    .hero-name { font-family: var(--serif); font-size: clamp(2.4rem, 3.8vw, 4rem); font-weight: 400; color: var(--white); line-height: 1.04; letter-spacing: -0.01em; margin-bottom: 0.5rem; }
+    .hero-title { font-family: var(--mono); font-size: 0.7rem; color: var(--s400); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 2.25rem; }
+
+    .hero-bio {
+      max-width: 660px; padding: 1.5rem 2rem;
+      border-left: 2px solid rgba(22,163,74,0.7);
+      background: rgba(255,255,255,0.035);
+      border-radius: 0 var(--r) var(--r) 0;
+      margin-bottom: 3rem;
+    }
+    .hero-bio p { font-family: var(--sans); font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.82); line-height: 1.8; }
+    .hero-bio strong { color: var(--white); font-weight: 500; }
+
+    .hero-caps {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: rgba(255,255,255,0.065);
+      border: 1px solid rgba(255,255,255,0.065); border-radius: var(--r); overflow: hidden;
+    }
+    .cap-cell { background: rgba(255,255,255,0.028); padding: 1.1rem 1.4rem; transition: background 0.2s; }
+    .cap-cell:hover { background: rgba(255,255,255,0.055); }
+    .cap-label { font-family: var(--mono); font-size: 0.55rem; color: var(--s400); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .cap-items { font-family: var(--sans); font-size: 0.82rem; color: rgba(255,255,255,0.72); font-weight: 300; line-height: 1.65; }
+
+    /* ── HERO CTA (minimal addition, hero bg makes existing pkg-cta buttons invisible) ── */
+    .hero-cta-row { display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+    .hero-btn { font-family: var(--sans); font-size: 0.85rem; font-weight: 600; padding: 0.8rem 1.5rem; border-radius: var(--r); text-decoration: none; transition: background 0.15s, border-color 0.15s, color 0.15s; }
+    .hero-btn-primary { background: var(--white); color: var(--navy); }
+    .hero-btn-primary:hover { background: var(--s200); }
+    .hero-btn-secondary { background: transparent; color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.25); }
+    .hero-btn-secondary:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
+
+    /* ── PROBLEMAS (pain points) ── */
+    .problems-strip { background: var(--white); border-top: 1px solid var(--s200); border-bottom: 1px solid var(--s200); }
+    .problems-inner { max-width: 1080px; margin: 0 auto; padding: 3.5rem 3.5rem; }
+    .section-label { font-family: var(--mono); font-size: 0.57rem; color: var(--s400); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.6rem; }
+    .section-title { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--navy); margin-bottom: 0.6rem; }
+    .section-intro { font-family: var(--sans); font-size: 0.92rem; color: var(--muted); line-height: 1.75; max-width: 640px; margin-bottom: 2.5rem; }
+
+    .problems-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--s200); border: 1px solid var(--s200); border-radius: var(--r-lg); overflow: hidden; }
+    .problem-card { background: var(--white); padding: 1.5rem; }
+    .problem-icon { font-size: 1.25rem; margin-bottom: 0.75rem; }
+    .problem-title { font-family: var(--sans); font-size: 0.88rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; line-height: 1.3; }
+    .problem-desc { font-family: var(--sans); font-size: 0.8rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── ¿PARA QUIÉN? ── */
+    .audience-strip { background: var(--s50); padding: 3.5rem 3.5rem; border-bottom: 1px solid var(--s200); }
+    .audience-inner { max-width: 1080px; margin: 0 auto; }
+    .audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+    .audience-card {
+      background: var(--white); border: 1px solid var(--s200); border-radius: var(--r-lg);
+      padding: 1.4rem 1.5rem; transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .audience-card:hover { border-color: var(--blue); box-shadow: 0 2px 12px rgba(29,78,216,0.07); }
+    .audience-name { font-family: var(--sans); font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.3rem; }
+    .audience-range { font-family: var(--mono); font-size: 0.58rem; color: var(--green); letter-spacing: 0.08em; margin-bottom: 0.6rem; }
+    .audience-desc { font-family: var(--sans); font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── SERVICIOS ── */
+    .services-section { background: var(--white); padding: 4rem 3.5rem; border-top: 1px solid var(--s200); }
+    .services-inner { max-width: 1080px; margin: 0 auto; }
+    .services-grid { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 2.5rem; border: 1px solid var(--s200); border-radius: var(--r-lg); overflow: hidden; }
+    .service-row { display: grid; grid-template-columns: 3fr 2fr; border-bottom: 1px solid var(--s100); transition: background 0.15s; }
+    .service-row:last-child { border-bottom: none; }
+    .service-row:hover { background: var(--s50); }
+    .service-main { padding: 1.75rem 2rem; border-right: 1px solid var(--s100); }
+    .service-tag { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); font-weight: 500; margin-bottom: 0.4rem; }
+    .service-name { font-family: var(--serif); font-size: 1.1rem; font-weight: 500; color: var(--navy); margin-bottom: 0.6rem; line-height: 1.3; }
+    .service-desc { font-family: var(--sans); font-size: 0.83rem; color: var(--muted); line-height: 1.7; margin-bottom: 0.9rem; }
+    .service-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+    .service-bullets li { font-family: var(--sans); font-size: 0.8rem; color: var(--s600); padding-left: 1rem; position: relative; }
+    .service-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--blue); font-size: 0.7rem; }
+    .service-side { padding: 1.75rem 1.5rem; display: flex; flex-direction: column; gap: 1rem; justify-content: flex-start; }
+    .service-problem-label { font-family: var(--mono); font-size: 0.54rem; color: var(--s400); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.35rem; }
+    .service-problem-text { font-family: var(--sans); font-size: 0.8rem; color: var(--s600); line-height: 1.6; font-style: italic; }
+    .service-price-label { font-family: var(--mono); font-size: 0.54rem; color: var(--s400); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.35rem; }
+    .service-price-val { font-family: var(--sans); font-size: 0.85rem; color: var(--navy); font-weight: 600; }
+    .service-price-note { font-family: var(--sans); font-size: 0.72rem; color: var(--muted); margin-top: 0.15rem; }
+
+    /* ── PAQUETES ── */
+    .packages-section { background: var(--s50); padding: 4rem 3.5rem; border-top: 1px solid var(--s200); }
+    .packages-inner { max-width: 1080px; margin: 0 auto; }
+    .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.5rem; }
+    .pkg-card {
+      background: var(--white); border: 1px solid var(--s200); border-radius: var(--r-lg);
+      overflow: hidden; display: flex; flex-direction: column;
+      transition: box-shadow 0.2s;
+    }
+    .pkg-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+    .pkg-card.featured { border-color: var(--blue); border-width: 1.5px; }
+    .pkg-header { padding: 1.5rem 1.5rem 1.25rem; border-bottom: 1px solid var(--s100); }
+    .pkg-badge { font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--blue); padding: 0.2rem 0.55rem; border-radius: 2px; display: inline-block; margin-bottom: 0.75rem; }
+    .pkg-badge.starter { background: var(--s500); }
+    .pkg-badge.popular { background: var(--blue); }
+    .pkg-badge.completo { background: var(--navy); }
+    .pkg-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; color: var(--navy); margin-bottom: 0.3rem; }
+    .pkg-target { font-family: var(--sans); font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+    .pkg-price { padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--s100); background: var(--s50); }
+    .pkg-price-val { font-family: var(--sans); font-size: 1.3rem; font-weight: 600; color: var(--navy); }
+    .pkg-price-period { font-family: var(--mono); font-size: 0.58rem; color: var(--s500); letter-spacing: 0.05em; margin-left: 0.3rem; }
+    .pkg-price-note { font-family: var(--sans); font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; }
+    .pkg-body { padding: 1.25rem 1.5rem; flex: 1; }
+    .pkg-includes-label { font-family: var(--mono); font-size: 0.53rem; color: var(--s400); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.7rem; }
+    .pkg-list { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+    .pkg-list li { font-family: var(--sans); font-size: 0.8rem; color: var(--s700); padding-left: 1.1rem; position: relative; line-height: 1.5; }
+    .pkg-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-size: 0.7rem; font-weight: 700; }
+    .pkg-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--s100); }
+    .pkg-cta { display: block; text-align: center; padding: 0.65rem 1rem; border-radius: var(--r); font-family: var(--sans); font-size: 0.82rem; font-weight: 600; text-decoration: none; transition: all 0.15s; }
+    .pkg-cta.primary { background: var(--navy); color: var(--white); }
+    .pkg-cta.primary:hover { background: #182d4a; }
+    .pkg-cta.secondary { background: var(--s100); color: var(--navy); border: 1px solid var(--s200); }
+    .pkg-cta.secondary:hover { background: var(--s200); }
+    .pkg-disclaimer { font-family: var(--sans); font-size: 0.72rem; color: var(--muted); text-align: center; margin-top: 1.25rem; line-height: 1.6; }
+
+    /* ── CÓMO TRABAJO ── */
+    .process-section { background: var(--navy); padding: 4.5rem 3.5rem; }
+    .process-inner { max-width: 1080px; margin: 0 auto; }
+    .process-head { margin-bottom: 2.75rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .process-head .section-label { color: var(--s400); }
+    .process-head .section-title { color: var(--white); margin-bottom: 0.5rem; }
+    .process-head .section-intro { color: rgba(255,255,255,0.55); max-width: none; margin-bottom: 0; }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.065); border: 1px solid rgba(255,255,255,0.065); border-radius: var(--r); overflow: hidden; margin-top: 0; }
+    .proc-step { background: rgba(255,255,255,0.025); padding: 1.75rem 1.5rem; }
+    .proc-num { font-family: var(--mono); font-size: 0.6rem; color: var(--s400); letter-spacing: 0.1em; margin-bottom: 0.8rem; }
+    .proc-title { font-family: var(--serif); font-size: 1rem; color: var(--white); font-weight: 400; margin-bottom: 0.5rem; line-height: 1.3; }
+    .proc-desc { font-family: var(--sans); font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.65; font-weight: 300; }
+
+    /* ── POR QUÉ YO ── */
+    .why-section { background: var(--white); padding: 4.5rem 3.5rem; border-top: 1px solid var(--s200); }
+    .why-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 4.5rem; align-items: start; }
+    .why-left .context-bio { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--navy); line-height: 1.65; font-style: italic; margin-bottom: 1rem; }
+    .why-left p { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); line-height: 1.75; margin-bottom: 0.75rem; }
+    .why-right { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--s200); border-radius: var(--r); overflow: hidden; }
+    .why-cell { padding: 1rem 1.25rem; border-bottom: 1px solid var(--s100); border-right: 1px solid var(--s100); }
+    .why-cell:nth-child(2n) { border-right: none; }
+    .why-cell:nth-last-child(-n+2) { border-bottom: none; }
+    .why-cell-label { font-family: var(--mono); font-size: 0.54rem; color: var(--s500); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.2rem; }
+    .why-cell-val { font-family: var(--sans); font-size: 0.875rem; color: var(--navy); font-weight: 500; line-height: 1.45; }
+
+    /* ── CONTACTO ── */
+    .contact-section { background: var(--s50); padding: 4.5rem 3.5rem; border-top: 1px solid var(--s200); }
+    .contact-inner { max-width: 1080px; margin: 0 auto; }
+    .contact-head { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 2.75rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--s200); }
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: start; }
+    .contact-h { font-family: var(--serif); font-size: 1.8rem; font-weight: 400; color: var(--navy); line-height: 1.25; margin-bottom: 0.9rem; }
+    .contact-p { font-family: var(--sans); font-size: 0.88rem; color: var(--muted); line-height: 1.75; margin-bottom: 1rem; }
+    .contact-note { margin-top: 0; padding: 0.9rem 1rem; background: var(--white); border: 1px solid var(--s200); border-radius: var(--r); font-family: var(--sans); font-size: 0.8rem; color: var(--s600); line-height: 1.65; }
+    .contact-note strong { color: var(--navy); }
+    .contact-rows { border: 1px solid var(--s200); border-radius: var(--r); overflow: hidden; background: var(--white); }
+    .c-row { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid var(--s100); text-decoration: none; color: inherit; transition: background 0.15s; }
+    .c-row:last-child { border-bottom: none; }
+    .c-row:hover { background: var(--s50); }
+    .c-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--s500); }
+    .c-val { font-family: var(--sans); font-size: 0.875rem; color: var(--navy); font-weight: 500; display: flex; align-items: center; gap: 0.35rem; }
+    .c-arrow { font-size: 0.75rem; color: var(--s400); transition: transform 0.15s; }
+    .c-row:hover .c-arrow { transform: translateX(3px); }
+
+    /* ── AVISO TRANSPARENCIA ── */
+    .transparency-bar {
+      background: var(--amber-light); border: 1px solid #fcd34d; border-radius: var(--r);
+      padding: 0.9rem 1.25rem; margin-bottom: 1.5rem;
+      display: flex; align-items: flex-start; gap: 0.75rem;
+    }
+    .transparency-bar-icon { flex-shrink: 0; font-size: 0.9rem; }
+    .transparency-bar-text { font-family: var(--sans); font-size: 0.8rem; color: #92400e; line-height: 1.6; }
+    .transparency-bar-text strong { color: #78350f; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy-mid); padding: 1.5rem 3.5rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    .foot-inner { max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .foot-copy { font-family: var(--mono); font-size: 0.57rem; color: var(--s400); letter-spacing: 0.05em; }
+    .foot-note { font-family: var(--mono); font-size: 0.54rem; color: var(--s400); letter-spacing: 0.03em; text-align: right; }
+    .foot-link { color: var(--s400); text-decoration: none; }
+    .foot-link:hover { color: var(--white); }
+
+    /* ── FADE IN ── */
+    .fi { opacity: 0; transform: translateY(8px); animation: fu 0.45s ease forwards; }
+    @keyframes fu { to { opacity: 1; transform: none; } }
+    .fi:nth-child(1) { animation-delay: 0.04s; }
+    .fi:nth-child(2) { animation-delay: 0.16s; }
+    .fi:nth-child(3) { animation-delay: 0.28s; }
+    .fi:nth-child(4) { animation-delay: 0.40s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav, .hero, .process-section, .contact-section, footer { padding-left: 2rem; padding-right: 2rem; }
+      .problems-strip, .audience-strip, .services-section, .packages-section, .why-section { padding-left: 2rem; padding-right: 2rem; }
+      .hero-caps { grid-template-columns: repeat(2, 1fr); }
+      .problems-grid { grid-template-columns: repeat(2, 1fr); }
+      .audience-grid { grid-template-columns: repeat(2, 1fr); }
+      .service-row { grid-template-columns: 1fr; }
+      .service-main { border-right: none; border-bottom: 1px solid var(--s100); }
+      .packages-grid { grid-template-columns: 1fr; max-width: 480px; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .why-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .hero { padding: 6rem 1.25rem 3.5rem; }
+      .hero-name { font-size: 2.4rem; }
+      .hero-caps { grid-template-columns: 1fr 1fr; }
+      .problems-strip, .audience-strip, .services-section, .packages-section, .why-section { padding: 2.5rem 1.25rem; }
+      .problems-grid { grid-template-columns: 1fr; }
+      .audience-grid { grid-template-columns: 1fr; }
+      .why-right { grid-template-columns: 1fr; }
+      .why-cell { border-right: none !important; }
+      .why-cell:last-child { border-bottom: none; }
+      .process-section, .contact-section { padding: 3rem 1.25rem; }
+      .process-steps { grid-template-columns: 1fr; }
+      footer { padding: 1.25rem; }
+      .foot-inner { flex-direction: column; align-items: flex-start; }
+      .foot-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="empresas-colombia.html" class="nav-brand">
+    <span class="nav-brand-name">Andrés Felipe Alarcón</span>
+    <span class="nav-divider"></span>
+    <span class="nav-brand-role">Control Financiero · Pymes</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="nav-back">← Empresas US</a></li>
+    <li><a href="soluciones.html">Soluciones</a></li>
+    <li><a href="empresas-colombia.html#servicios">Servicios</a></li>
+    <li><a href="paquetes.html">Paquetes</a></li>
+    <li><a href="sobre-mi.html">Perfil</a></li>
+    <li><a href="empresas-colombia.html#contacto" class="nav-cta">Hablar</a></li>
+  </ul>
+  <div class="nav-toggle" onclick="toggleNav()" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html" onclick="closeNav()">← Versión en inglés (US Companies)</a>
+  <a href="soluciones.html" onclick="closeNav()">Soluciones</a>
+  <a href="empresas-colombia.html#servicios" onclick="closeNav()">Servicios</a>
+  <a href="paquetes.html" onclick="closeNav()">Paquetes</a>
+  <a href="sobre-mi.html" onclick="closeNav()">Perfil</a>
+  <a href="empresas-colombia.html#contacto" onclick="closeNav()">Contacto</a>
+</div>
+
+<!-- ── INTRO PÁGINA ── -->
+<div class="hero" style="padding:8.5rem 3.5rem 3.5rem;">
+  <div class="hero-inner">
+    <a href="empresas-colombia.html" style="font-family:var(--mono); font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--s400); text-decoration:none;">← Volver al inicio</a>
+    <h1 class="hero-name" style="font-size:clamp(1.8rem, 3vw, 2.6rem); margin-top:1.25rem;">Paquetes y precios orientativos</h1>
+    <div class="hero-bio fi" style="margin-top:1.5rem;">
+      <p>Tres formas de empezar según lo que necesite su empresa hoy. Antes de cualquier acuerdo, una conversación sin costo para definir el alcance real.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── PAQUETES ── -->
+<div class="packages-section" id="paquetes">
+  <div class="packages-inner">
+    <div class="section-label">01 / Paquetes</div>
+    <h2 class="section-title">Opciones de trabajo</h2>
+    <p class="section-intro">
+      Tres formas de empezar, según lo que necesite la empresa en este momento. A mayor
+      acompañamiento y herramientas propias, mayor el valor entregado cada mes — no solo más horas.
+      Los precios son orientativos: cada empresa es diferente y ajustamos según el alcance real.
+    </p>
+
+    <div class="transparency-bar">
+      <div class="transparency-bar-icon">ℹ️</div>
+      <div class="transparency-bar-text">
+        <strong>Transparencia:</strong> Los rangos de precio abajo son referencias.
+        Antes de cualquier acuerdo hacemos una conversación sin costo para entender su situación
+        y definir exactamente qué se necesita sin cobro.
+      </div>
+    </div>
+
+    <div class="packages-grid">
+
+      <!-- Paquete Starter -->
+      <div class="pkg-card">
+        <div class="pkg-header">
+          <div class="pkg-badge starter">Inicio</div>
+          <div class="pkg-name">Diagnóstico + Hoja de ruta</div>
+          <div class="pkg-target">Elíjalo si: quiere saber dónde está parado hoy y por dónde empezar, sin comprometerse a un acompañamiento mensual todavía.</div>
+        </div>
+        <div class="pkg-price">
+          <div class="pkg-price-val">COP 1M – 1.5M<span class="pkg-price-period">/ único pago</span></div>
+          <div class="pkg-price-note">Varía según tamaño y complejidad de la empresa</div>
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-includes-label">Incluye</div>
+          <ul class="pkg-list">
+            <li>Revisión de estados financieros (últimos 6–12 meses)</li>
+            <li>Diagnóstico de flujo de caja y márgenes</li>
+            <li>Identificación de los 3 principales problemas financieros</li>
+            <li>Informe escrito con hallazgos y recomendaciones</li>
+            <li>Reunión de presentación de resultados (1 hora)</li>
+          </ul>
+        </div>
+        <div class="pkg-footer">
+          <a href="mailto:aalarco2@eafit.edu.co?subject=Consulta%20paquete%20Diagnóstico" class="pkg-cta secondary">Solicitar información →</a>
+        </div>
+      </div>
+
+      <!-- Paquete Popular -->
+      <div class="pkg-card featured">
+        <div class="pkg-header">
+          <div class="pkg-badge popular">Más solicitado</div>
+          <div class="pkg-name">Acompañamiento Financiero Mensual</div>
+          <div class="pkg-target">Elíjalo si: necesita control financiero continuo — cierres, flujo de caja, reportes — sin contratar un empleado de tiempo completo.</div>
+        </div>
+        <div class="pkg-price">
+          <div class="pkg-price-val">COP 2M – 3M<span class="pkg-price-period">/ mes</span></div>
+          <div class="pkg-price-note">Contrato mínimo de 3 meses · Ajustable según alcance</div>
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-includes-label">Incluye cada mes</div>
+          <ul class="pkg-list">
+            <li>Revisión y cierre financiero mensual</li>
+            <li>Proyección de flujo de caja (4–8 semanas adelante)</li>
+            <li>Informe gerencial con indicadores clave</li>
+            <li>Seguimiento real vs. presupuesto con análisis de desviaciones</li>
+            <li>Una reunión de revisión mensual (60–90 min)</li>
+            <li>Disponibilidad para consultas puntuales vía WhatsApp o email</li>
+          </ul>
+        </div>
+        <div class="pkg-footer">
+          <a href="mailto:aalarco2@eafit.edu.co?subject=Consulta%20paquete%20Acompañamiento%20Mensual" class="pkg-cta primary">Agendar llamada sin costo →</a>
+        </div>
+      </div>
+
+      <!-- Paquete Completo -->
+      <div class="pkg-card">
+        <div class="pkg-header">
+          <div class="pkg-badge completo">Completo</div>
+          <div class="pkg-name">Control Financiero + Herramienta</div>
+          <div class="pkg-target">Elíjalo si: además del acompañamiento mensual, quiere una herramienta propia (Excel o Power BI) que le quede funcionando a su equipo.</div>
+        </div>
+        <div class="pkg-price">
+          <div class="pkg-price-val">COP 3M – 5M<span class="pkg-price-period">/ primer mes</span></div>
+          <div class="pkg-price-note">Incluye setup inicial + herramienta · Luego mensual desde COP 2.5M</div>
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-includes-label">Incluye</div>
+          <ul class="pkg-list">
+            <li>Todo lo del paquete Mensual</li>
+            <li>Modelo de flujo de caja en Excel personalizado</li>
+            <li>Dashboard de indicadores financieros en Excel o Power BI</li>
+            <li>Plantilla de presupuesto y seguimiento adaptada al negocio</li>
+            <li>Sesión de capacitación al equipo (cómo usar las herramientas)</li>
+            <li>Las herramientas quedan en poder de la empresa</li>
+          </ul>
+        </div>
+        <div class="pkg-footer">
+          <a href="mailto:aalarco2@eafit.edu.co?subject=Consulta%20paquete%20Completo" class="pkg-cta secondary">Solicitar información →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="pkg-disclaimer">
+      También trabajo en proyectos puntuales fuera de paquetes (diagnósticos, modelos específicos, presentaciones para banco o socios).
+      Si su situación es diferente a las opciones de arriba, escríbame y lo miramos.
+    </p>
+  </div>
+</div>
+<!-- ── CONTACTO ── -->
+<div class="contact-section" id="contacto">
+  <div class="contact-inner">
+    <div class="contact-head">
+      <span style="font-family:var(--mono);font-size:0.57rem;color:var(--s400);letter-spacing:0.12em;">02 /</span>
+      <span style="font-family:var(--serif);font-size:1.45rem;font-weight:400;color:var(--navy);">Hablemos</span>
+    </div>
+
+    <div class="contact-layout">
+      <div>
+        <h2 class="contact-h">¿Tiene dudas sobre las finanzas de su negocio?</h2>
+        <p class="contact-p">
+          La primera conversación es sin costo y sin compromiso. Cuénteme qué está pasando
+          con su empresa y vemos juntos si puedo ayudarle. Si no encajo con lo que necesita,
+          se lo digo con honestidad.
+        </p>
+        <p class="contact-p">
+          Trabajo de forma remota con empresas en todo Colombia,
+          y presencial en Medellín si la situación lo requiere.
+        </p>
+        <div class="contact-note">
+          <strong>Lo más fácil:</strong> escríbame al correo o por LinkedIn con una descripción breve
+          de su empresa y qué le preocupa en este momento. Le respondo en menos de 24 horas.
+        </div>
+      </div>
+
+      <div class="contact-rows">
+        <a href="mailto:aalarco2@eafit.edu.co?subject=Consulta%20servicios%20financieros%20pymes" class="c-row">
+          <span class="c-label">Correo</span>
+          <span class="c-val">aalarco2@eafit.edu.co <span class="c-arrow">→</span></span>
+        </a>
+        <a href="https://www.linkedin.com/in/aalarconfp/" target="_blank" class="c-row">
+          <span class="c-label">LinkedIn</span>
+          <span class="c-val">linkedin.com/in/aalarconfp <span class="c-arrow">↗</span></span>
+        </a>
+        <a href="https://aalarconfp.github.io" target="_blank" class="c-row">
+          <span class="c-label">Portafolio</span>
+          <span class="c-val">aalarconfp.github.io <span class="c-arrow">↗</span></span>
+        </a>
+        <a href="https://www.credential.net/profile/aalarconfp/wallet" target="_blank" class="c-row">
+          <span class="c-label">Certificaciones</span>
+          <span class="c-val">Ver credenciales verificadas <span class="c-arrow">↗</span></span>
+        </a>
+        <div class="c-row" style="cursor:default;">
+          <span class="c-label">Ubicación</span>
+          <span class="c-val" style="color:var(--s600);font-weight:400;">Medellín, Colombia · Trabajo remoto</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="foot-inner">
+    <span class="foot-copy">© 2026 Andrés Felipe Alarcón · Control Financiero para Pymes Colombianas</span>
+    <span class="foot-note">
+      <a href="index.html" class="foot-link">Servicios para empresas en inglés (US Companies) →</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav() { document.getElementById('navDrawer').classList.toggle('open'); }
+  function closeNav()  { document.getElementById('navDrawer').classList.remove('open'); }
+</script>
+</body>
+</html>
