@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selected Finance Solutions — Andrés Felipe Alarcón</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAADiElEQVR4nO3d0XETMRRAUcPwTwc0Qf8l0AQdUAF8MB5wJhnihJXe+p5TgUaR7mrXjvdyAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgJd82D2Aqs9fvv7cPYZpfnz/Zj0uZsIXs/H/TQjW+bh7ACU2/+uYp3UEYBGL+j7maw0BWMBifhvzdjwBgDABOJir2PuYv2MJAIQJAIQJAIR92j0Afit++cX9/X5OABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABDmR0GH8AOZ7OAEAGECAGECAGECcLDiCz/+J/N3LAGAMAFYwFXsbczb8QRgEYv5PuZrDQFYyKJ+HfO0zuiJ9uUYHsXUqI0clI3Po5oWglGDsfGpmBKCMc8AbH5Kpqz3EQGYMhmw0oR1vz0AEyYBdtm9/rcHANhnawB21w8m2LkPnAAgbFsAXP3hj1374RQ/CTblM1O41/QL3fhbAJufM5u+fscHADiOAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAEDYKd4NyPMmvXdu+iuweJ4AnNCkjX91HZMQnItbAAgTgJOZePX/2/TxcUsAIEwAIMxDwAex4+Gb4/75OQFA2LaPbFw94NaOU5wTAIQJAIQJAIQJAIQJAIQJAIQJAIQJAIQJAISN/18APzBx66VvUE76XwB/s1uTv/U6PgC8zuRFxlxuASBMACBMAE5m+v319PFxSwAgzEPAE7peZSc9+HPlPycBODGbjvdyCwBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBh4wMw6f13cK/p6/cU7wacPolwVttOAF5sCX/s2g/jbwGA42wNgFMA7N0HTgAQtj0ATgGU7V7/2wNwueyfBNhhwrofEYDLZcZkwCpT1vuIQTzlc38e1ZSNfzVqME8JAY9i2sYHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICH8wvaUKfnfNMCqwAAAABJRU5ErkJggg==">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy:       #0b1524;
+      --navy-mid:   #0f1e33;
+      --blue:       #1d4ed8;
+      --blue-light: #dbeafe;
+      --s700: #334155; --s600: #475569; --s500: #64748b;
+      --s400: #94a3b8; --s300: #cbd5e1; --s200: #e2e8f0;
+      --s100: #f1f5f9; --s50:  #f8fafc;
+      --white: #ffffff; --text: #1e293b; --muted: #475569;
+      --serif: 'Lora', Georgia, serif;
+      --sans:  'Source Sans 3', system-ui, sans-serif;
+      --mono:  'JetBrains Mono', monospace;
+      --r: 4px; --r-sm: 2px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--s50); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.65; overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: var(--white); border-bottom: 1px solid var(--s200);
+      padding: 0 3.5rem; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 0.875rem; text-decoration: none; }
+    .nav-brand-name { font-family: var(--sans); font-size: 0.875rem; font-weight: 600; color: var(--navy); letter-spacing: -0.01em; }
+    .nav-divider { width: 1px; height: 14px; background: var(--s300); }
+    .nav-brand-role { font-family: var(--mono); font-size: 0.6rem; color: var(--s500); letter-spacing: 0.05em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
+    .nav-links a { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--s500); text-decoration: none; padding: 0.38rem 0.7rem; border-radius: var(--r-sm); transition: color 0.15s, background 0.15s; }
+    .nav-links a:hover { color: var(--navy); background: var(--s100); }
+    .nav-cta { background: var(--navy) !important; color: var(--white) !important; }
+    .nav-cta:hover { background: #182d4a !important; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-toggle span { display: block; width: 20px; height: 1.5px; background: var(--navy); }
+    .nav-drawer { display: none; position: fixed; top: 56px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--s200); padding: 1.25rem 2rem; z-index: 199; flex-direction: column; gap: 1rem; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--s600); text-decoration: none; }
+
+    /* ── HERO ── */
+    .hero { background: var(--navy); padding: 7rem 3.5rem 5rem; position: relative; overflow: hidden; }
+    .hero::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 72px 72px;
+    }
+    .hero-inner { max-width: 1080px; margin: 0 auto; position: relative; z-index: 1; }
+
+    .hero-eyeline { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem; }
+    .hero-eyeline-text { font-family: var(--mono); font-size: 0.57rem; color: var(--s400); letter-spacing: 0.18em; text-transform: uppercase; }
+    .hero-eyeline-rule { flex: 1; height: 1px; background: rgba(255,255,255,0.07); }
+
+    .hero-name { font-family: var(--serif); font-size: clamp(2.4rem, 3.8vw, 4rem); font-weight: 400; color: var(--white); line-height: 1.04; letter-spacing: -0.01em; margin-bottom: 0.5rem; }
+    .hero-title { font-family: var(--mono); font-size: 0.7rem; color: var(--s400); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 2.25rem; }
+
+    .hero-bio {
+      max-width: 640px; padding: 1.5rem 2rem;
+      border-left: 2px solid rgba(29,78,216,0.65);
+      background: rgba(255,255,255,0.035);
+      border-radius: 0 var(--r) var(--r) 0;
+      margin-bottom: 3rem;
+    }
+    .hero-bio p { font-family: var(--sans); font-size: 0.96rem; font-weight: 300; color: rgba(255,255,255,0.82); line-height: 1.8; }
+    .hero-bio strong { color: var(--white); font-weight: 500; }
+
+    .hero-caps {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: rgba(255,255,255,0.065);
+      border: 1px solid rgba(255,255,255,0.065); border-radius: var(--r); overflow: hidden;
+    }
+    .cap-cell { background: rgba(255,255,255,0.028); padding: 1.1rem 1.4rem; transition: background 0.2s; }
+    .cap-cell:hover { background: rgba(255,255,255,0.055); }
+    .cap-label { font-family: var(--mono); font-size: 0.55rem; color: var(--s400); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .cap-items { font-family: var(--sans); font-size: 0.82rem; color: rgba(255,255,255,0.72); font-weight: 300; line-height: 1.65; }
+
+    /* ── SHARED LAYOUT ── */
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 3.5rem; }
+    .sec-head { padding: 3.5rem 0 2rem; display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid var(--s200); }
+    .sec-head-left { display: flex; align-items: baseline; gap: 0.8rem; }
+    .sec-n { font-family: var(--mono); font-size: 0.57rem; color: var(--s400); letter-spacing: 0.12em; }
+    .sec-t { font-family: var(--serif); font-size: 1.45rem; font-weight: 400; color: var(--navy); letter-spacing: -0.01em; }
+    .sec-sub { font-family: var(--mono); font-size: 0.58rem; color: var(--s500); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* ── PROFESSIONAL CONTEXT ── */
+    .context-strip { background: var(--white); border-top: 1px solid var(--s200); border-bottom: 1px solid var(--s200); }
+    .context-inner { max-width: 1080px; margin: 0 auto; padding: 3rem 3.5rem; display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
+    .context-label { font-family: var(--mono); font-size: 0.57rem; color: var(--s400); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .context-bio { font-family: var(--serif); font-size: 1.02rem; font-weight: 400; color: var(--navy); line-height: 1.65; font-style: italic; margin-bottom: 1rem; }
+    .context-bio-note { font-family: var(--sans); font-size: 0.84rem; color: var(--muted); line-height: 1.7; }
+    .context-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--s200); border-radius: var(--r); overflow: hidden; }
+    .fact-cell { padding: 1rem 1.25rem; border-bottom: 1px solid var(--s100); border-right: 1px solid var(--s100); }
+    .fact-cell:nth-child(2n) { border-right: none; }
+    .fact-cell:nth-last-child(-n+2) { border-bottom: none; }
+    .fact-label { font-family: var(--mono); font-size: 0.54rem; color: var(--s500); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.2rem; }
+    .fact-val { font-family: var(--sans); font-size: 0.875rem; color: var(--navy); font-weight: 500; line-height: 1.45; }
+
+    /* ── FRAMEWORK DISCLAIMER ── */
+    .disclaimer-bar {
+      background: var(--s50); border: 1px solid var(--s200);
+      border-top: none; padding: 0.75rem 1.5rem;
+      display: flex; align-items: flex-start; gap: 0.75rem;
+    }
+    .disclaimer-bar-icon { font-family: var(--mono); font-size: 0.6rem; color: var(--s400); letter-spacing: 0.08em; flex-shrink: 0; padding-top: 0.1rem; }
+    .disclaimer-bar-text { font-family: var(--sans); font-size: 0.78rem; color: var(--s600); line-height: 1.6; }
+    .disclaimer-bar-text strong { color: var(--s700); font-weight: 600; }
+
+    /* ── REGISTER TABLE ── */
+    .reg-head {
+      display: grid; grid-template-columns: 52px 1fr;
+      padding: 0.6rem 1.5rem;
+      background: var(--s100); border: 1px solid var(--s200); border-top: none; border-bottom: none;
+    }
+    .reg-col { font-family: var(--mono); font-size: 0.54rem; font-weight: 500; color: var(--s500); letter-spacing: 0.14em; text-transform: uppercase; }
+
+    .fw-row {
+      display: grid; grid-template-columns: 52px 1fr;
+      border: 1px solid var(--s200); border-top: none;
+      background: var(--white); transition: background 0.15s;
+    }
+    .fw-row:hover { background: var(--s50); }
+    .fw-cell { padding: 1.6rem 1.5rem; border-right: 1px solid var(--s100); display: flex; align-items: flex-start; }
+    .fw-cell:last-child { border-right: none; }
+
+    .cell-ref { justify-content: center; align-items: center; border-right: 1px solid var(--s200); flex-shrink: 0; }
+    .ref-num { font-family: var(--mono); font-size: 0.62rem; font-weight: 500; color: var(--s400); letter-spacing: 0.1em; }
+
+    .cell-main { flex-direction: column; gap: 0.45rem; border-right: 1px solid var(--s200); }
+    .fw-domain { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); font-weight: 500; }
+    .fw-name { font-family: var(--serif); font-size: 1.07rem; font-weight: 500; color: var(--navy); line-height: 1.25; margin-bottom: 0.1rem; }
+    .fw-desc { font-family: var(--sans); font-size: 0.83rem; color: var(--muted); line-height: 1.68; }
+    .fw-tags { display: flex; flex-wrap: wrap; gap: 0.28rem; margin-top: 0.55rem; }
+    .fw-tag { font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.05em; padding: 0.15rem 0.45rem; border-radius: var(--r-sm); border: 1px solid var(--s200); color: var(--s600); background: var(--s50); }
+
+
+
+    /* ── DARK PHILOSOPHY STRIP ── */
+    .dark-strip { background: var(--navy); padding: 5rem 3.5rem; }
+    .dark-inner { max-width: 1080px; margin: 0 auto; }
+    .dark-head { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 2.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .dark-head .sec-n { color: var(--s400); }
+    .dark-head .sec-t { color: var(--white); }
+    .dark-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.065); border: 1px solid rgba(255,255,255,0.065); border-radius: var(--r); overflow: hidden; }
+    .dark-cell { background: rgba(255,255,255,0.025); padding: 2rem; }
+    .dark-cell-tag { font-family: var(--mono); font-size: 0.54rem; color: var(--s400); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 0.7rem; }
+    .dark-cell-title { font-family: var(--serif); font-size: 1.05rem; color: var(--white); font-weight: 400; margin-bottom: 0.65rem; line-height: 1.3; }
+    .dark-cell-desc { font-family: var(--sans); font-size: 0.82rem; color: rgba(255,255,255,0.52); line-height: 1.72; font-weight: 300; }
+
+    /* ── METHODOLOGY ── */
+    .method-section { background: var(--white); padding: 5rem 3.5rem; border-top: 1px solid var(--s200); }
+    .method-inner { max-width: 1080px; margin: 0 auto; }
+    .method-head { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 2.75rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--s200); }
+    .method-steps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; position: relative; }
+    .method-steps::before { content: ''; position: absolute; top: 1.05rem; left: calc(100%/12); right: calc(100%/12); height: 1px; background: var(--s200); z-index: 0; }
+    .method-step { text-align: center; padding: 0 0.75rem; position: relative; z-index: 1; }
+    .step-num { display: inline-flex; align-items: center; justify-content: center; width: 2.1rem; height: 2.1rem; border-radius: 50%; background: var(--white); border: 1.5px solid var(--s300); font-family: var(--mono); font-size: 0.6rem; font-weight: 500; color: var(--navy); margin: 0 auto 0.75rem; }
+    .step-title { font-family: var(--sans); font-size: 0.8rem; font-weight: 600; color: var(--navy); margin-bottom: 0.3rem; }
+    .step-desc { font-family: var(--sans); font-size: 0.73rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── CONTACT ── */
+    .contact-section { background: var(--s50); padding: 5rem 3.5rem; border-top: 1px solid var(--s200); }
+    .contact-inner { max-width: 1080px; margin: 0 auto; }
+    .contact-head { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 2.75rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--s200); }
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: start; }
+    .contact-h { font-family: var(--serif); font-size: 1.9rem; font-weight: 400; color: var(--navy); line-height: 1.2; margin-bottom: 0.9rem; }
+    .contact-p { font-family: var(--sans); font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
+    .contact-note { margin-top: 1.25rem; padding: 0.9rem 1rem; background: var(--white); border: 1px solid var(--s200); border-radius: var(--r); font-family: var(--sans); font-size: 0.78rem; color: var(--s600); line-height: 1.6; }
+    .contact-rows { border: 1px solid var(--s200); border-radius: var(--r); overflow: hidden; background: var(--white); }
+    .c-row { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid var(--s100); text-decoration: none; color: inherit; transition: background 0.15s; }
+    .c-row:last-child { border-bottom: none; }
+    .c-row:hover { background: var(--s50); }
+    .c-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--s500); }
+    .c-val { font-family: var(--sans); font-size: 0.875rem; color: var(--navy); font-weight: 500; display: flex; align-items: center; gap: 0.35rem; }
+    .c-arrow { font-size: 0.75rem; color: var(--s400); transition: transform 0.15s; }
+    .c-row:hover .c-arrow { transform: translateX(3px); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy-mid); padding: 1.5rem 3.5rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    .foot-inner { max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .foot-copy { font-family: var(--mono); font-size: 0.57rem; color: var(--s400); letter-spacing: 0.05em; }
+    .foot-note { font-family: var(--mono); font-size: 0.54rem; color: var(--s400); letter-spacing: 0.03em; text-align: right; }
+
+    /* ── HERO CTA + CREDIBILITY STRIP + SIGN-OFF ── */
+    .hero-cta-row { display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+    .btn { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.85rem 1.6rem; border-radius: var(--r); text-decoration: none; transition: background 0.15s, border-color 0.15s, color 0.15s; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-primary { background: var(--white); color: var(--navy); }
+    .btn-primary:hover { background: var(--s200); }
+    .btn-secondary { background: transparent; color: rgba(255,255,255,0.82); border: 1px solid rgba(255,255,255,0.25); }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
+    .btn-outline { background: transparent; color: var(--navy); border: 1px solid var(--s300); }
+    .btn-outline:hover { border-color: var(--navy); background: var(--s100); }
+
+    .cred-strip { display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .cred-chip { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .cred-dot { color: rgba(255,255,255,0.22); }
+
+    .hero-signoff { display: flex; align-items: center; gap: 0.9rem; padding-top: 1.75rem; border-top: 1px solid rgba(255,255,255,0.08); }
+    .hero-signoff-name { font-family: var(--serif); font-size: 0.95rem; color: rgba(255,255,255,0.85); font-style: italic; }
+    .hero-signoff-role { font-family: var(--mono); font-size: 0.56rem; color: var(--s400); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* ── SERVICES ── */
+    .svc-row { display: grid; grid-template-columns: 240px 1fr; border: 1px solid var(--s200); border-top: none; background: var(--white); }
+    .svc-label-cell { padding: 1.75rem 1.5rem; border-right: 1px solid var(--s200); }
+    .svc-domain { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); font-weight: 500; margin-bottom: 0.55rem; display: block; }
+    .svc-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; color: var(--navy); line-height: 1.32; }
+    .svc-main-cell { padding: 1.75rem 1.5rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem; }
+    .svc-col-label { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--s500); margin-bottom: 0.6rem; display: block; }
+    .svc-col-list { list-style: none; font-family: var(--sans); font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+    .svc-col-list li { padding-left: 0.9rem; position: relative; margin-bottom: 0.4rem; }
+    .svc-col-list li::before { content: '—'; position: absolute; left: 0; color: var(--s400); }
+
+    /* ── SOLUTION FLOW (Selected Finance Solutions) ── */
+    .fw-flow { display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 0.9rem; }
+    .flow-label { font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); font-weight: 500; margin-bottom: 0.15rem; display: block; }
+    .flow-text { font-family: var(--sans); font-size: 0.83rem; color: var(--muted); line-height: 1.62; }
+    .flow-arrow { font-family: var(--mono); font-size: 0.65rem; color: var(--s300); }
+
+    /* ── CREDENTIALS GRID ── */
+    .cred-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--s200); border-top: none; background: var(--white); }
+    .cred-cell { padding: 1.25rem 1.5rem; border-right: 1px solid var(--s100); border-bottom: 1px solid var(--s100); }
+    .cred-cell:nth-child(4n) { border-right: none; }
+    .cred-cell:nth-last-child(-n+3) { border-bottom: none; }
+
+    /* ── FADE IN ── */
+    .fi { opacity: 0; transform: translateY(8px); animation: fu 0.45s ease forwards; }
+    @keyframes fu { to { opacity: 1; transform: none; } }
+    .fi:nth-child(1) { animation-delay: 0.04s; }
+    .fi:nth-child(2) { animation-delay: 0.16s; }
+    .fi:nth-child(3) { animation-delay: 0.28s; }
+    .fi:nth-child(4) { animation-delay: 0.40s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav, .hero, .dark-strip, .method-section, .contact-section, footer { padding-left: 2rem; padding-right: 2rem; }
+      .wrap { padding: 0 2rem; }
+      .context-inner { padding: 3rem 2rem; grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-caps { grid-template-columns: repeat(2, 1fr); }
+      .reg-head, .fw-row { grid-template-columns: 40px 1fr; }
+      .dark-grid { grid-template-columns: 1fr; }
+      .method-steps { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+      .method-steps::before { display: none; }
+      .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .svc-row { grid-template-columns: 1fr; }
+      .svc-label-cell { border-right: none; border-bottom: 1px solid var(--s200); }
+      .svc-main-cell { grid-template-columns: 1fr 1fr; }
+      .cred-grid { grid-template-columns: repeat(2, 1fr); }
+      .cred-cell:nth-child(4n) { border-right: 1px solid var(--s100); }
+      .cred-cell:nth-child(2n) { border-right: none; }
+      .cred-cell:nth-last-child(-n+3) { border-bottom: 1px solid var(--s100); }
+      .cred-cell:nth-last-child(-n+2) { border-bottom: none; }
+    }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .hero { padding: 6rem 1.25rem 3.5rem; }
+      .hero-name { font-size: 2.4rem; }
+      .hero-caps { grid-template-columns: 1fr 1fr; }
+      .wrap { padding: 0 1.25rem; }
+      .context-inner { padding: 2.5rem 1.25rem; }
+      .context-facts { grid-template-columns: 1fr; }
+      .fact-cell { border-right: none !important; }
+      .fact-cell:last-child { border-bottom: none; }
+      .reg-head { display: none; }
+      .fw-row { grid-template-columns: 1fr; border-top: 1px solid var(--s200); }
+      .cell-ref { display: none; }
+      .fw-cell { border-right: none; }
+      .dark-strip, .method-section, .contact-section { padding-left: 1.25rem; padding-right: 1.25rem; }
+      footer { padding: 1.25rem; }
+      .foot-inner { flex-direction: column; align-items: flex-start; }
+      .foot-note { text-align: left; }
+      .method-steps { grid-template-columns: 1fr 1fr; gap: 1.75rem; }
+      .svc-main-cell { grid-template-columns: 1fr; gap: 1.25rem; }
+      .cred-grid { grid-template-columns: 1fr; }
+      .cred-cell { border-right: none !important; border-bottom: 1px solid var(--s100) !important; }
+      .cred-cell:last-child { border-bottom: none !important; }
+      .hero-cta-row { flex-direction: column; align-items: stretch; }
+      .btn { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="index.html" class="nav-brand">
+    <span class="nav-brand-name">Andrés Felipe Alarcón</span>
+    <span class="nav-divider"></span>
+    <span class="nav-brand-role">Operational Finance</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="empresas-colombia.html" style="color:var(--blue);border:1px solid var(--blue-light);border-radius:2px;">🇨🇴 Empresas Colombia</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="index.html#approach">Approach</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="empresas-colombia.html" onclick="closeNav()" style="color:#1d4ed8;font-weight:600;">🇨🇴 Servicios para Empresas Colombianas</a>
+  <a href="index.html#services" onclick="closeNav()">Services</a>
+  <a href="solutions.html" onclick="closeNav()">Solutions</a>
+  <a href="index.html#approach" onclick="closeNav()">Approach</a>
+  <a href="about.html" onclick="closeNav()">About</a>
+  <a href="#contact" onclick="closeNav()">Contact</a>
+</div>
+<div class="dark-strip" style="padding-top:8.5rem;">
+  <div class="dark-inner" style="border-bottom:none; margin-bottom:0; padding-bottom:0;">
+    <a href="index.html" style="font-family:var(--mono); font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--s400); text-decoration:none;">← Back to Home</a>
+    <h1 style="font-family:var(--serif); font-size:clamp(1.8rem, 3vw, 2.6rem); font-weight:400; color:var(--white); letter-spacing:-0.01em; margin:1.25rem 0 0.75rem;">Selected Finance Solutions</h1>
+    <p style="font-family:var(--sans); font-size:0.92rem; font-weight:300; color:rgba(255,255,255,0.65); max-width:640px; line-height:1.7;">
+      Examples of how I approach common finance problems businesses run into — and how I think
+      about building finance systems that hold up over time.
+    </p>
+  </div>
+</div>
+
+<!-- ── SELECTED FINANCE SOLUTIONS ── -->
+<div class="wrap">
+  <div class="sec-head" id="solutions" style="border-bottom:none;">
+    <div class="sec-head-left">
+      <span class="sec-n">01 /</span>
+      <span class="sec-t">Selected Finance Solutions</span>
+    </div>
+    <span class="sec-sub">Example Engagements · Finance System Design</span>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+  <div class="disclaimer-bar">
+    <span class="disclaimer-bar-icon">NOTE</span>
+    <p class="disclaimer-bar-text">
+      Below are examples of how I approach common finance problems that businesses run into.
+      <strong>These are sample projects based on my real work experience</strong> — they are not
+      actual client files or confidential data. No real company names, client information, or
+      real financial numbers are shown.
+    </p>
+  </div>
+
+  <!-- Table header -->
+  <div class="reg-head">
+    <span class="reg-col">Ref</span>
+    <span class="reg-col">Problem → Solution → Outcome</span>
+  </div>
+
+  <!-- Framework 01 -->
+  <div class="fw-row">
+    <div class="fw-cell cell-ref"><span class="ref-num">F-01</span></div>
+    <div class="fw-cell cell-main">
+      <span class="fw-domain">Cash &amp; Liquidity</span>
+      <div class="fw-name">13-Week Cash Flow Forecast</div>
+      <div class="fw-flow">
+        <div><span class="flow-label">Problem</span><p class="flow-text">Most companies only find out they're low on cash once the month is already over — because they look at what already happened, not what's coming.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Solution</span><p class="flow-text">A rolling 13-week cash flow that tracks money in and out week by week, separates confirmed cash from expected cash, flags "what-if" scenarios, and tests whether you'd still meet loan requirements under different conditions.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Outcome</span><p class="flow-text">Early warning before cash gets tight, and a simple weekly view you can review at a glance.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Framework 02 -->
+  <div class="fw-row">
+    <div class="fw-cell cell-ref"><span class="ref-num">F-02</span></div>
+    <div class="fw-cell cell-main">
+      <span class="fw-domain">Monthly Books Close</span>
+      <div class="fw-name">Month-End Close Tracking System</div>
+      <div class="fw-flow">
+        <div><span class="flow-label">Problem</span><p class="flow-text">Closing the books late is rarely about accounting mistakes — it's a coordination problem, with tasks scattered across emails and no one sure who owns which reconciliation.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Solution</span><p class="flow-text">A close calendar, a tracker showing the status of every reconciliation, clear task ownership, and simple progress numbers you can check anytime.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Outcome</span><p class="flow-text">A close that finishes on schedule, without chasing people down or holding extra status meetings.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Framework 03 -->
+  <div class="fw-row">
+    <div class="fw-cell cell-ref"><span class="ref-num">F-03</span></div>
+    <div class="fw-cell cell-main">
+      <span class="fw-domain">Reporting &amp; Dashboards</span>
+      <div class="fw-name">Management Reporting Dashboard</div>
+      <div class="fw-flow">
+        <div><span class="flow-label">Problem</span><p class="flow-text">Growing businesses often have plenty of accounting data but not much usable information — financial statements show what already happened, not what needs attention now.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Solution</span><p class="flow-text">One dashboard pulling revenue, profit margins, expenses, cash flow, and budget-vs-actual results into a single view.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Outcome</span><p class="flow-text">A decision-ready view in minutes, instead of digging through spreadsheets.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Framework 04 -->
+  <div class="fw-row">
+    <div class="fw-cell cell-ref"><span class="ref-num">F-04</span></div>
+    <div class="fw-cell cell-main">
+      <span class="fw-domain">Budgeting &amp; Performance</span>
+      <div class="fw-name">Budget vs. Actual Reporting System</div>
+      <div class="fw-flow">
+        <div><span class="flow-label">Problem</span><p class="flow-text">Knowing your numbers were "off" isn't useful on its own — a number without an explanation doesn't help anyone make a decision.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Solution</span><p class="flow-text">Documented assumptions behind each department's budget, month-over-month gap tracking, and a summary that ties each gap back to a real business driver.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Outcome</span><p class="flow-text">Reporting built for management meetings, not just year-end paperwork.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Framework 05 -->
+  <div class="fw-row">
+    <div class="fw-cell cell-ref"><span class="ref-num">F-05</span></div>
+    <div class="fw-cell cell-main">
+      <span class="fw-domain">Cash Tied Up in the Business</span>
+      <div class="fw-name">Working Capital Dashboard</div>
+      <div class="fw-flow">
+        <div><span class="flow-label">Problem</span><p class="flow-text">Companies often calculate metrics like "days to collect" or "days to pay" but never connect them to real decisions, because who owes you and who you owe live in separate reports.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Solution</span><p class="flow-text">One dashboard combining collection speed, payment speed, inventory turnover, and overall cash position for a quick weekly check-in.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div><span class="flow-label">Outcome</span><p class="flow-text">A clear line from what's on your balance sheet to what's actually in your bank account.</p></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- ── FINANCE OPERATIONS PHILOSOPHY ── -->
+<div class="dark-strip">
+  <div class="dark-inner">
+    <div class="dark-head">
+      <span class="sec-n">02 /</span>
+      <span class="sec-t">How I Think About Finance Work</span>
+    </div>
+    <div class="dark-grid">
+      <div class="dark-cell">
+        <div class="dark-cell-tag">Principle I</div>
+        <div class="dark-cell-title">Get the numbers right before making them look good</div>
+        <div class="dark-cell-desc">
+          A fast report built on bad numbers is worse than no report — it gives you false
+          confidence when you're making a decision. Before building anything, I always ask:
+          what does it take for this number to be trustworthy, every single month? That answer
+          shapes how the whole system is built, not just how it looks.
+        </div>
+      </div>
+      <div class="dark-cell">
+        <div class="dark-cell-tag">Principle II</div>
+        <div class="dark-cell-title">Fix the process first, then build the dashboard</div>
+        <div class="dark-cell-desc">
+          A dashboard should be the last step of a well-run process, not a shortcut around one.
+          Systems built backwards — starting with a pretty chart and figuring out the process
+          later — tend to break once real work piles up. Before writing a single formula, I map
+          out where the data comes from, who owns it, how it's categorized, and who checks it.
+        </div>
+      </div>
+      <div class="dark-cell">
+        <div class="dark-cell-tag">Principle III</div>
+        <div class="dark-cell-title">Simple systems are stronger than complicated ones</div>
+        <div class="dark-cell-desc">
+          Financial controls fail when they're too complicated for the people running them to
+          use consistently. The best systems are structured enough to grow with the business,
+          simple enough that anyone can double-check them, and clear enough that if something
+          looks off, you'll spot it right away — no guesswork needed.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONTACT ── -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-head">
+      <span class="sec-n">03 /</span>
+      <span class="sec-t">Contact</span>
+    </div>
+    <div class="contact-layout">
+      <div>
+        <h2 class="contact-h">Let's discuss your finance challenges.</h2>
+        <p class="contact-p">
+          Open to senior analyst, financial controller, and FP&amp;A roles — especially with
+          multinational companies, companies with several entities, or businesses modernizing
+          their finance function. Also available for independent consulting projects, like
+          automating your reporting or redesigning your finance processes.
+        </p>
+        <div class="contact-note">
+          Happy to talk in English or Spanish. Available during U.S. working hours.
+          Open to remote or hybrid arrangements.
+        </div>
+      </div>
+      <div class="contact-rows">
+        <a href="mailto:aalarco2@eafit.edu.co" class="c-row">
+          <span class="c-label">Email</span>
+          <span class="c-val">aalarco2@eafit.edu.co <span class="c-arrow">→</span></span>
+        </a>
+        <a href="https://www.linkedin.com/in/aalarconfp/" target="_blank" class="c-row">
+          <span class="c-label">LinkedIn</span>
+          <span class="c-val">linkedin.com/in/aalarconfp <span class="c-arrow">↗</span></span>
+        </a>
+        <a href="https://www.credential.net/profile/aalarconfp/wallet" target="_blank" class="c-row">
+          <span class="c-label">Credentials</span>
+          <span class="c-val">Certification Wallet <span class="c-arrow">↗</span></span>
+        </a>
+        <div class="c-row" style="cursor:default;">
+          <span class="c-label">Location</span>
+          <span class="c-val" style="color:var(--s600);font-weight:400;">Medellín, Colombia · Remote-Ready</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="foot-inner">
+    <span class="foot-copy">© 2026 Andrés Felipe Alarcón · Operational Finance &amp; Financial Control</span>
+    <span class="foot-note">
+      Financial Control · FP&amp;A · Reporting Automation · Finance Systems Design
+      &nbsp;·&nbsp;
+      <a href="empresas-colombia.html" style="color:var(--s400);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--s400)'">🇨🇴 Servicios para pymes colombianas →</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav() { document.getElementById('navDrawer').classList.toggle('open'); }
+  function closeNav()  { document.getElementById('navDrawer').classList.remove('open'); }
+</script>
+</body>
+</html>
